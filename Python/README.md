@@ -8,4 +8,8 @@ as a Python document, we will still need to run it as a SageMath document.
 Also note that in some of the documents that have been prepared and uploaded as part of this project, there are intentional mistakes in the code to 
 demonstrate to the the user how SageMath reports these errors.  When downloading these files as python files, even while running them as a SageMath document,
 once the error is encountered, execution of the file will stop.  For the majority of the documents in this project this will not be a problem, as they all
-run without runtime errors.
+run without runtime errors.  
+
+Files listed here that do have intentional errors:
+
+* [Basic Introduction](Introduction/basic-introdution.py)
