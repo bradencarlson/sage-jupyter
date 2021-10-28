@@ -12,4 +12,4 @@ run without runtime errors.
 
 Files listed here that do have intentional errors:
 
-* [Basic Introduction](Introduction/basic-introdution.py)
+* [Basic Introduction](Introduction/basic-introduction.py)
