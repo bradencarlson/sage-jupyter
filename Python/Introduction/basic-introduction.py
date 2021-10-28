@@ -64,7 +64,7 @@ print(f"The type of x is {type(x)} and the type of y is {type(y)}")
 
 ### THE LINE BELOW HAS AN INTENTIONAL ERROR.  COMMENT IT OUT IF YOU WISH TO RUN THIS FILE AS A SAGEMATH FILE ###
 x+y 
-######################
+###
 
 # We should see that the `print` statement runs just fine, but since x is an Integer object while y is a 'str' (short for String) object, we should see an error message, which will give us information about where the error happened, as well as a summary of the error in the last line, which should read "TypeError: unsupported operand parent(s) for +: 'Integer Ring' and <class 'str'>'".  
 # 
@@ -92,7 +92,10 @@ print(y)
 
 
 y = [1,10,30,40] # spots 0,1,2,3 are available
+
+### THE LINE BELOW HAS AN INTENTIONAL ERROR.  COMMENT IT OUT IF YOU WISH TO RUN THIS FILE AS A SAGEMATH FILE ###
 print(y[4])
+###
 
 
 # There is much to learn about many different data types and how the all play together.  This document mainly uses the part of SageMath that is inherited from Python, with the notable exception of the Integer Ring class that we have been introduced too.  For more information about data types in Python please see [Python Data Types](https://www.w3schools.com/python/python_datatypes.asp) by W3Schools.
