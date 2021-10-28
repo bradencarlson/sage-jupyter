@@ -61,8 +61,10 @@ print(type(x))
 x = 56
 y = "hello"
 print(f"The type of x is {type(x)} and the type of y is {type(y)}")
-x+y
 
+### THE LINE BELOW HAS AN INTENTIONAL ERROR.  COMMENT IT OUT IF YOU WISH TO RUN THIS FILE AS A SAGEMATH FILE ###
+x+y 
+######################
 
 # We should see that the `print` statement runs just fine, but since x is an Integer object while y is a 'str' (short for String) object, we should see an error message, which will give us information about where the error happened, as well as a summary of the error in the last line, which should read "TypeError: unsupported operand parent(s) for +: 'Integer Ring' and <class 'str'>'".  
 # 
