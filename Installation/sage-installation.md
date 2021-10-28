@@ -21,4 +21,4 @@ Similar instructions can be found on the site where the installation file is ava
 
 The installation process for MacOS users is very similar to the installation process for Windows users.  Navigate to the Github repository [SageMath MacOS Releases](https://github.com/3-manifolds/Sage_macOS/releases) to download the latest release of Sage.  Once the file has finished downloading, you can run it to install sage onto you machine.  
 
-Similar instruction can be found on the site where teh installation file is available for download.
+Similar instructions can be found on the site where the installation file is available for download.
