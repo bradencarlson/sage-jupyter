@@ -3,7 +3,9 @@
 In Jupyter Notebooks, when working with any type of document we have that option to export that document as a text file, as markdown, and a number
 of other options.  While working with a SageMath document, we have the option of downloading the document as a Python document.  We need to be very careful when 
 doing this, since some of the functions that we are using in SageMath in our documents are not available in Python.  Thus if we download any one of our documents 
-as a Python document, we will still need to run it as a SageMath document.  
+as a Python document, we will still need to run it as a SageMath document.  To do this, I have found that it is necessary to enter the sage terminal (typing
+`sage` in linux, selecting the SageMath icon in Windows), then typing the command `load('AlgebraicCoding.py')` to run the file containing the information about 
+algebraic coding theory.
 
 Also note that in some of the documents that have been prepared and uploaded as part of this project, there are intentional mistakes in the code to 
 demonstrate to the the user how SageMath reports these errors.  When downloading these files as python files, even while running them as a SageMath document,
