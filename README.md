@@ -35,7 +35,7 @@ This series can be followed however the user wishes, but was desined to go in th
 
 1. [Introduction](Introduction)
     1. [Basic Introduction](Introduction/basic-introduction.ipynb)
-    2. [Conditionals and Iteration](Introduction/conditionals-iteration.ipynb)
+    2. [Conditionals and Iteration](Introduction/iteration-conditionals.ipynb)
     3. [Functions and Classes](Introduction/functions-classes.ipynb)
 2. Second topic here
 3. [Cryptography and Coding Theory](Cryptography)
