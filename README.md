@@ -31,7 +31,7 @@ project in the form of Python files.  Please go to that folder for more details 
 
 ## Series
 
-This series can be followed however the user wishes, but was desined to go in the following order:
+This series can be followed however the user wishes, but was designed to go in the following order:
 
 1. [Introduction](Introduction)
     1. [Basic Introduction](Introduction/basic-introduction.ipynb)
