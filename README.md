@@ -34,3 +34,11 @@ project in the form of Python files.  Please go to that folder for more details 
 This series can be followed however the user wishes, but was desined to go in the following order:
 
 1. [Introduction](Introduction)
+    1. [Basic Introduction](Introduction/basic-introduction.ipynb)
+    2. [Conditionals and Iteration](Introduction/conditionals-iteration.ipynb)
+    3. [Functions and Classes](Introduction/functions-classes.ipynb)
+2. Second topic here
+3. [Cryptography and Coding Theory](Cryptography)
+    1. [Ceasar Cipher](Cryptography/CeasarCipher.ipynb)
+    2. [RSA Encryption](Cryptography/RSA-encryption.ipynb)
+    3. [Coding Theory](Cryptography/AlgebraicCoding.ipynb)
