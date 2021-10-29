@@ -37,7 +37,7 @@ This series can be followed however the user wishes, but was desined to go in th
     1. [Basic Introduction](Introduction/basic-introduction.ipynb)
     2. [Conditionals and Iteration](Introduction/iteration-conditionals.ipynb)
     3. [Functions and Classes](Introduction/functions-classes.ipynb)
-2. Second topic here
+2. [Groups](Groups)
 3. [Cryptography and Coding Theory](Cryptography)
     1. [Ceasar Cipher](Cryptography/CeasarCipher.ipynb)
     2. [RSA Encryption](Cryptography/RSA-encryption.ipynb)
