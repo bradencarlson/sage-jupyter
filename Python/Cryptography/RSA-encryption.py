@@ -1,13 +1,21 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[66]:
+# # RSA Encryption
+
+# In this document, we talk about the neccessary tools to perform RSA encryption.  Below we have the functions PadMessage and DepadMessage, we are thoroughly commented if you wish to read over how these functions work.  What these functions do is turn our String message into a list of numbers, each of which is no bigger than our pulic modulus.  Once again, If you have not done so, I would highly recommend watching Dr. Misseldine's [RSA Encryption](https://www.youtube.com/watch?v=LcKquwXkhzU&list=PLz7t89zv8Lp2D6xQOG7kUEbN1KP5u-mpH&index=79) video, he explains the math behind RSA encryption, and this code was adapted from his program written in MAGMA.  
+
+# In[2]:
 
 
 
 def PadMessage(message: str, N: int):
+    # create the array that we will use to save our list of numbers
     PW = []
+    # create a new string that we will add on to to create each number
     digits = "" 
+    # for each letter in the message, encode it and add that encoding
+    # onto the string digits.
     for letter in message:
         if letter== "a": digits = digits + "10"; 
         if letter== "b": digits = digits + "11"; 
@@ -100,26 +108,35 @@ def PadMessage(message: str, N: int):
         if letter== "}": digits = digits + "98"; 
         if letter== "_": digits = digits + "99";
         
+        # if the digit gets too big, that is bigger than N, then chop off the 
+        # last two digits and add that number into the array, then continue the process
         if int(digits) > N:
             PW.append(int(digits[0:len(digits)-2]))
             digits = digits[len(digits)-2:]
+    # at the end, if there are any digits that have not been added into the array, add them in
     if len(digits)!=0:
         PW.append(int(digits))
+    # return the array of numbers
     return PW
 
 
     
 
 
-# In[59]:
+# In[1]:
+
 
 
 def DepadMessage(digits):
+    # define a some new strings for us to use
     letters = ""
     plaintext = ""
+    # add all the digits in the array to the string letters
     for i in digits:
         letters = letters + str(i)
     
+    # go through each pair of numbers in the string letters and add their corresponding plaintext to the 
+    # plaintext string.
     for i in range(0,len(letters)+1,2):
         if letters[i:i+2]== "10": plaintext = plaintext + "a"; 
         if letters[i:i+2]== "11": plaintext = plaintext + "b"; 
@@ -211,38 +228,45 @@ def DepadMessage(digits):
         if letters[i:i+2]== "97": plaintext = plaintext + "{"; 
         if letters[i:i+2]== "98": plaintext = plaintext + "}"; 
         if letters[i:i+2]== "99": plaintext = plaintext + "_";
+    # after that is done, return the plaintext string
     return plaintext
 
 
-# In[67]:
+# Here is where the magic happens, we define the ExpRSA function, as well as the EncryptRSA and DecryptRSA functions that we will use to encrypt and decrypt messages using the RSA cryptosystem.  The code is commented below.  
+
+# In[11]:
 
 
 def ExpRSA(plaintext, e, N):
+    # define a new list that we will store each encrypted (or decrypted) number in
     ciphertext = []
     
+    # for each 'word' in the plaintext, raise it to the power of e mod n, then store
+    # it to the ciphertext list.
     for word in plaintext:
         ciphertext.append(power_mod(word, e, N))
-        
+    
+    # return the ciphertext list
     return ciphertext
 
-
-# In[68]:
-
-
 def EncryptRSA(plaintext, e, N):
+    # first pad the plaintext into numbers, then encrypt it useing ExpRSA.
     return ExpRSA(PadMessage(plaintext, N), e, N)
 
 def DecryptRSA(ciphertext, d, N):
+    # first decrypt the message, then depad it into plaintext to read.
     return DepadMessage(ExpRSA(ciphertext, d, N))
 
 
-# In[70]:
+# Here we go through our first example.  The encryption and decryption keys here were taken from Judson's [Abstract Algebra: Theory and Applications](http://abstract.ups.edu/sage-aata.html).  In the example below, `n` is the modulus, and `e` and `d` are the encryption and decryption keys, respectfully.  The message is a passage from Alexandre Dumas' *The Counte of Monte Cristo*.
+
+# In[13]:
 
 
 n = 3551
 e = 629
 d = 1997
-message = "Here we go again!!!"
+message = "All human wisdom is contained in these two words - Wait and Hope."
 
 encrypted = EncryptRSA(message, e, n)
 
