@@ -41,5 +41,6 @@ This series can be followed however the user wishes, but was designed to go in t
     1. [Modular Arithetic](Groups/modular-arithmetic.ipynb)
 4. [Cryptography and Coding Theory](Cryptography)
     1. [Ceasar Cipher](Cryptography/CeasarCipher.ipynb)
-    2. [RSA Encryption](Cryptography/RSA-encryption.ipynb)
-    3. [Coding Theory](Cryptography/AlgebraicCoding.ipynb)
+    2. [Hill Cipher](Cryptography/Hill-cipher.ipynb)
+    3. [RSA Encryption](Cryptography/RSA-encryption.ipynb)
+    4. [Coding Theory](Cryptography/AlgebraicCoding.ipynb)
