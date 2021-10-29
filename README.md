@@ -39,6 +39,7 @@ This series can be followed however the user wishes, but was designed to go in t
     3. [Functions and Classes](Introduction/functions-classes.ipynb)
 2. [Groups](Groups)
     1. [Modular Arithetic](Groups/modular-arithmetic.ipynb)
+    2. [Groups and Subgroups](Groups/Groups.ipynb)
 4. [Cryptography and Coding Theory](Cryptography)
     1. [Ceasar Cipher](Cryptography/CeasarCipher.ipynb)
     2. [Hill Cipher](Cryptography/Hill-cipher.ipynb)
