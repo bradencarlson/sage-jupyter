@@ -28,3 +28,9 @@ SageMath will find this project helpful in their journey to using SageMath.
 
 As Jupyter Notebooks allows SageMath documents to be downloaded as Python documents, In the [Python](Python) folder, you will find many of the documents used in this 
 project in the form of Python files.  Please go to that folder for more details regarding the use of Python in this project.
+
+## Series
+
+This series can be followed however the user wishes, but was desined to go in the following order:
+
+1. [Introduction](Introduction)
