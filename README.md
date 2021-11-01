@@ -41,6 +41,7 @@ This series can be followed however the user wishes, but was designed to go in t
     1. [Modular Arithetic](Groups/modular-arithmetic.ipynb)
     2. [Groups](Groups/Groups.ipynb)
     3. [Subgroups](Groups/Subgroups.ipynb)
+    4. [Cosets](Groups/Cosets.ipynb)
 4. [Cryptography and Coding Theory](Cryptography)
     1. [Ceasar Cipher](Cryptography/CeasarCipher.ipynb)
     2. [Hill Cipher](Cryptography/Hill-cipher.ipynb)
