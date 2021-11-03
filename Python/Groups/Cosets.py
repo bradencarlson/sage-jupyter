@@ -112,3 +112,17 @@ for k in gens.keys():
 
 sorted(left_coset(H,S4('(1,3,2,4)')))==sorted(right_coset(H,S4('(1,3,2,4)')))
 
+
+# Here we make note that SageMath does have a function built in to compute cosets of a given subgroup, although it does not provide us with the additional information of which elements of the group generate that coset.  It is used as follows:
+
+# In[ ]:
+
+
+S4.cosets(H,side='left')
+
+
+# In[ ]:
+
+
+S4.cosets(H,side='right')
+
