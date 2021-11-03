@@ -38,7 +38,7 @@ This series can be followed however the user wishes, but was designed to go in t
     2. [Conditionals and Iteration](Introduction/iteration-conditionals.ipynb)
     3. [Functions and Classes](Introduction/functions-classes.ipynb)
 2. [Groups](Groups)
-    1. [Modular Arithetic](Groups/modular-arithmetic.ipynb)
+    1. [Modular Arithmetic](Groups/modular-arithmetic.ipynb)
     2. [Groups](Groups/Groups.ipynb)
     3. [Subgroups](Groups/Subgroups.ipynb)
     4. [Cosets](Groups/Cosets.ipynb)
