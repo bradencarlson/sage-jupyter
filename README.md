@@ -36,6 +36,10 @@ this project in the form of Python files.  Please go to the Python folder for mo
 
 This series can be followed however the user wishes, but was designed to go in the following order:
 
+0. Beginnings
+    1. [Install SageMath](Installation/sage-installation.md)
+    2. [Install Jupyter Notebooks](Installation/jupyter-installation.md)
+    3. [Running a Notebook](Running/running-jupyter.md)
 1. [Introduction](Introduction)
     1. [Basic Introduction](Introduction/basic-introduction.ipynb)
     2. [Conditionals and Iteration](Introduction/iteration-conditionals.ipynb)
@@ -45,10 +49,10 @@ This series can be followed however the user wishes, but was designed to go in t
     2. [Groups](Groups/Groups.ipynb)
     3. [Subgroups](Groups/Subgroups.ipynb)
     4. [Cosets](Groups/Cosets.ipynb)
-4. [Cryptography and Coding Theory](Cryptography)
+3. [Cryptography and Coding Theory](Cryptography)
     1. [Ceasar Cipher](Cryptography/CeasarCipher.ipynb)
     2. [Frequency Analysis](Cryptography/FrequencyAnalysis.ipynb)
     3. [Hill Cipher](Cryptography/Hill-cipher.ipynb)
     4. [RSA Encryption](Cryptography/RSA-encryption.ipynb)
     5. [Coding Theory](Cryptography/AlgebraicCoding.ipynb)
-5. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
+4. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
