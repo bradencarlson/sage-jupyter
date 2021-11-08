@@ -6,3 +6,16 @@ To install Jupyter Notebooks on Linux, search your package manager for jupyter.
 
 To install Jupyter Notebooks on Windows and MacOS, go to [Project Jupyter](https://jupyter.org/install), and follow the instructions to install Jupyter
 Notebooks onto your machine.
+
+## Linking SageMath and Jupyter Notebooks
+
+Note that on some systems, it may be neccessary to link the sagemath kernel to the installation of Jupyter Notebooks so that Jupyter Notebooks knows the commands 
+that we will be using in SageMath.  This can be done in the following way.  
+
+### Linux
+
+Run the command `sudo jupyter kernelspec install $SAGEMATH$/jupyter/kernels/sagemath` where `$SAGEMATH$` is the home folder of your SageMath installation.  
+
+### Windows
+
+### MacOS
