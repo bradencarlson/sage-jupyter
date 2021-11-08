@@ -9,6 +9,12 @@ Notebooks onto your machine.
 
 ## Linking SageMath and Jupyter Notebooks
 
+**Continue with these steps only if you have encountered the error message** 
+
+> kernel not found
+
+While opening the SageMath files with Jupyter Notebooks.
+
 Note that on some systems, it may be neccessary to link the sagemath kernel to the installation of Jupyter Notebooks so that Jupyter Notebooks knows the commands 
 that we will be using in SageMath.  This can be done in the following way.  
 
