@@ -48,3 +48,4 @@ This series can be followed however the user wishes, but was designed to go in t
     3. [Hill Cipher](Cryptography/Hill-cipher.ipynb)
     4. [RSA Encryption](Cryptography/RSA-encryption.ipynb)
     5. [Coding Theory](Cryptography/AlgebraicCoding.ipynb)
+5. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
