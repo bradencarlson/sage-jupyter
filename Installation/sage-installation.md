@@ -28,4 +28,4 @@ downloading, you can run it to install SageMath onto your machine.
 
 Similar instructions can be found on the site where the installation file is available for download.
 
-[Back to Home](https://github.com/bradencarlson/sage-jupyter/blob/main)
+[Back to Home](https://github.com/bradencarlson/sage-jupyter/blob/main/)
