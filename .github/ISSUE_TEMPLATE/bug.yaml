@@ -3,6 +3,7 @@ description: File a Bug report
 title: "[Bug]: "
 labels: ["Bug"]
 
-body:
-  - type: markdown
-    attributes: Please discribe the bug you have encountered in detail.
+
+
+
+
