@@ -1,5 +1,5 @@
 ---
-name: Feature Request
+name: Request A Feature
 about: Let us know what you would like to see included!
 title: "Feature Request"
 labels: feature request
