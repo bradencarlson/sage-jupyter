@@ -5,7 +5,8 @@ labels: ["Bug"]
 
 body:
   - type: markdown
-    attributes: "Please describe the bug you encountered in detail."
+    attributes: 
+      value: "Please describe the bug you encountered in detail."
 
 
 
