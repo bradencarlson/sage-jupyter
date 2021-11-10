@@ -10,7 +10,7 @@ onto their machines.
 
 This section of the Sage-Jupyter Project is not meant for the beginning student, as some familiarity with a command line or a terminal is recommended. 
 If the user is a beginning student, I would highly recommend either using Jupyter Notebooks or the [Sage Cell](https://sagecell.sagemath.org/) webpage to explore 
-this project.
+this Project.
 
 These Python files may be used with SageMath without the need for a local installation of Jupyter Notebooks.
 
