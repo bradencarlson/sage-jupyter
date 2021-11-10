@@ -1,20 +1,18 @@
-name: Bug Report
-description: File a Bug report
-title: "[Bug]: "
-labels: ["Bug"]
+---
+name: Report Bug
+about: Something isn't working.
+title: "Bug Report"
+labels: bug
+---
 
-body:
-  - type: markdown
-    attributes: 
-      value: "Please describe the bug you encountered in detail."
-  - type: textarea
-    attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
-    validations:
-      required: true
+Thank you for filling out a bug report.  Please fill out the following infomation so we can help fix the problem.
 
+### What Happened?
+
+
+### What Was Supposed to Happen?
+
+
+** Also: If you have downloaded SageMath or Jupyter Notebooks, please let us know what operating system you were using when you encountered the problem. **
 
 
