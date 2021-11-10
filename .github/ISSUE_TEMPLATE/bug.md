@@ -5,7 +5,7 @@ title: "Bug Report"
 labels: bug
 ---
 
-Thank you for filling out a bug report.  Please fill out the following infomation so we can help fix the problem.
+Thank you for filling out a bug report.  Please fill out the following information so we can help fix the problem.
 
 ### What Happened?
 
