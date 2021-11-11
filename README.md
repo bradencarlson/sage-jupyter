@@ -19,7 +19,7 @@ and copy the code that needs to be run, this code should then be pasted into the
 ## How to Help
 
 If at any point while using this Project you encounter an error, or you would like to see an additional topic discussed, or if any of the topics discussed are 
-unclear or need more explanation, please feel free to fill out an Issues form under the [Issues](https://github.com/bradencarlson/sage-jupyter/issues) tab.
+unclear or need more documentation, please feel free to fill out an Issues form under the [Issues](https://github.com/bradencarlson/sage-jupyter/issues) tab.
 
 ## Getting Started
 
