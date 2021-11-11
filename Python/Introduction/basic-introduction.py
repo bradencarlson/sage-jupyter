@@ -41,6 +41,36 @@ print(f"The quotient when x is divided by y is {x//y}")
 # will print out "The value of x is 56" becuase the second `x` is placed in brackets.
 # 
 # At any point in this brief introduction to the syntax of SageMath, to practice or experiment with the commands we are discussing, while in Command mode we can use the commands `a` or `b` to place a new cell `a`bove or `b`elow the selected cell so that you have a new environment to enter Edit mode and write your code. 
+# 
+# Exponents in SageMath are implemented with the `^` command.  See below.
+
+# In[ ]:
+
+
+print(2^8)
+
+
+# Here are a few more examples of performing basic arithmetic in SageMath.  Remember at any time, while in Command mode, you can press the buttons `a` or `b` to create a new cell, then press `enter` to edit that cell to practice on your own.
+
+# In[ ]:
+
+
+x = 10^500
+print(x/6.745)
+
+
+# In[ ]:
+
+
+x = 5.67
+y = 3.45423
+z = 9.3861
+
+total = x + y + z
+average = total/3
+
+print(f"The average of these three numbers is {average}")
+
 
 # ## Types of Data
 
@@ -61,22 +91,27 @@ print(type(x))
 x = 56
 y = "hello"
 print(f"The type of x is {type(x)} and the type of y is {type(y)}")
+x+y
 
-### THE LINE BELOW HAS AN INTENTIONAL ERROR.  COMMENT IT OUT IF YOU WISH TO RUN THIS FILE AS A SAGEMATH FILE ###
-x+y 
-###
 
 # We should see that the `print` statement runs just fine, but since x is an Integer object while y is a 'str' (short for String) object, we should see an error message, which will give us information about where the error happened, as well as a summary of the error in the last line, which should read "TypeError: unsupported operand parent(s) for +: 'Integer Ring' and <class 'str'>'".  
 # 
-# Be careful when writting your own code in SageMath, if you are not careful with what types of data you are working with, your code may not run as expected, or at all.  
+# Be careful when writting your own code in SageMath, if you are not careful with what types of data you are working with, your code may not run as expected, or at all.  There are many different types of data available to us
 # 
-# Another important data type that that we will see is the list.  These are very useful and they are defined as follows.
+# * str
+# * Integer Ring
+# * Lists
+# * Matrices
+# * and many others
+# 
+# Above, we see that lists are a data type that we are able to use.  These are very useful and they are defined by enclosing the desired information in the list with brackets, each separated by a comma.  See the example below.
 
 # In[ ]:
 
 
 y = [1,4,3,23,4,32,5]
 print(y)
+print(type(y))
 
 
 # We can then access individual elements of the list by typing commands such as
@@ -92,10 +127,26 @@ print(y)
 
 
 y = [1,10,30,40] # spots 0,1,2,3 are available
-
-### THE LINE BELOW HAS AN INTENTIONAL ERROR.  COMMENT IT OUT IF YOU WISH TO RUN THIS FILE AS A SAGEMATH FILE ###
 print(y[4])
-###
 
 
-# There is much to learn about many different data types and how the all play together.  This document mainly uses the part of SageMath that is inherited from Python, with the notable exception of the Integer Ring class that we have been introduced too.  For more information about data types in Python please see [Python Data Types](https://www.w3schools.com/python/python_datatypes.asp) by W3Schools.
+# There is much to learn about many different data types and how the all play together.  This document mainly uses the part of SageMath that is inherited from Python, with the notable exception of the Integer Ring class that we have been introduced to.  For more information about data types in Python please see [Python Data Types](https://www.w3schools.com/python/python_datatypes.asp) by W3Schools.
+# 
+# At this point, we might be tempted to try something such as multiplying all of the elements in a list by some number, much as we would with a vector, run the following code and notice that no error messages are given.
+
+# In[ ]:
+
+
+x = [2,4,6,8]
+y = 2*x
+
+
+# Although nothing went wrong during runtime, this code did not do what we thought it would, to see this, let's find out what is being stored in `y`.
+
+# In[ ]:
+
+
+print(y)
+
+
+# We should see two copies of the list `x`, one after the other, stored in `y`.  So it did not multiply each element by 2, but rather, made two copies of the list!  Take some time to experiment with lists, for we will see these often in our study of Abstract Algebra.

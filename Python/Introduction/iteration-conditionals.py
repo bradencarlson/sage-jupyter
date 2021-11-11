@@ -5,7 +5,7 @@
 
 # ## Loops and Iteration
 
-# Previously, we saw how to declare lists for our use, and how to access their elements.  In our study of Abstract Algebra, there will be many situations where we need to perform an operation many times on many different elements.  One example of this that we will see in the future is computing a Coset of an element in a given group.  For now we will deal with simpler examples.  Consider the list defined below.  If we want to add all the elements of this list together and print out the sum, we could define a new variable called `total`, then use a `for` loop to iterate over each element in the list. Run the next cell.
+# Previously, we saw how to declare lists for our use, and how to access their elements.  In our study of Abstract Algebra, there will be many situations where we need to perform an operation many times on many different elements.  One example of this that we will see in the future is computing a Coset of a subgroup with respect to an element in a given group.  For now we will deal with simpler examples.  Consider the list defined below.  If we want to add all the elements of this list together and print out the sum, we could define a new variable called `total`, then use a `for` loop to iterate over each element in the list. Run the next cell.
 
 # In[ ]:
 
@@ -13,11 +13,14 @@
 # define the list x
 x = [3,5,4,6,5]
 
-# define the new variable total
+# define the new variable, total
 total = 0
 
 # use a for loop to go through each element in the list
 for item in x:
+    # for each element in the list, take the current total, add
+    # the value of item to it, then store that new value in the 
+    # variable total
     total = total + item
     
 # when its done, print out the total
@@ -43,7 +46,7 @@ for i in range(0,len(x)):
 print(total)
 
 
-# Very similar, but the notable difference is in the syntax of the for loop.  This code uses an index to access the items in the list `x` rather than telling the interpreter to access them directly.  That being so, we must tell the program which values of `i` we want it to use.  The command `range(0,len(x))` is how we accomplish this.  This command creates a new list of integers from and including zero, to but not including `len(x)`, which is the length of `x`, in this case 5.  There will situations where one of these methods is advantageous over the other, depending on what our code needs to do.  
+# Very similar, but the notable difference is in the syntax of the `for` loop.  This code uses an index to access the items in the list `x` rather than telling the interpreter to access them directly.  That being so, we must tell the program which values of `i` we want it to use.  The command `range(0,len(x))` is how we accomplish this.  This command creates a new list of integers from and including zero, to but not including `len(x)`, which is the length of `x`, in this case 5.  There will situations where one of these methods is advantageous over the other, depending on what our code needs to do.  
 # 
 # There are other types of ways to perform iteration, such as the while loop, but in this project, we will gain the most mileage out of the for loop.  For more information about how to use loops, please visit [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp)
 
@@ -63,6 +66,19 @@ else:
 
 
 # The second print statement is not evaluated at all, because the conditions for that block of code are not satisfied.  This allows us alot of options when we are using Sage, for example, we will see this when we test to see if two groups are isomorphic, or if two cosets are equal to each other.  Another way we can implement conditional logic is the following.
+
+# In[ ]:
+
+
+x = [3,5,4,1,3,4,5,3,2,4,3,5,7,5,4,3,5,4,2,3,6,4,1,3,3,2]
+
+# define a for loop to see which elements of x are bigger than 5
+for item in x:
+    if item > 5:
+        print(item)
+
+
+# We should only see two number print out, since only those two numbers are bigger than 5 in the list.  There are many other ways in which we can use conditional statements to perform certain tasks.  We will have plenty of oportunities to practice with these in the future.  For now, take some time and look over the following code and practice using conditional statements in SageMath.
 
 # In[ ]:
 
