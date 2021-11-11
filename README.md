@@ -14,7 +14,12 @@ Encryption system, as well as Algebraic Coding theory.
 
 This Project may be used with no local installation of SageMath or Jupyter Notebooks.  If one does not have access to these resources, 
 all code used in this Project may be executed on the [Sage Cell](https://sagecell.sagemath.org/) webpage.  To do this, please visit the [Python](Python) folder, 
-and copy the code that needs to be run, this code should then be pasted into the cell at the webpage above and can then be executed.    
+and copy the code that needs to be run, this code should then be pasted into the cell at the webpage above and can then be executed.   
+
+## How to Help
+
+If at any point while using this Project you encounter an error, or you would like to see an additional topic discussed, or if any of the topics discussed are 
+unclear or need more explanation, please feel free to fill out an Issues form under the [Issues](https://github.com/bradencarlson/sage-jupyter/issues) tab.
 
 ## Getting Started
 
