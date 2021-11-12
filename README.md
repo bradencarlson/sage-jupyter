@@ -21,6 +21,8 @@ and copy the code that needs to be run. This code should then be pasted into the
 If at any point while using this Project you encounter an error, you would like to see an additional topic discussed, or if any of the topics discussed are 
 unclear or need more documentation, please feel free to fill out an Issues form under the [Issues](https://github.com/bradencarlson/sage-jupyter/issues) tab.
 
+Please see our [Contributing](.github/CONTRIBUTING.md) page for more information.
+
 ## Getting Started
 
 While the entirety of this Project may be used without installing SageMath or Jupyter Notebooks, the crux of this Project is to use both of these programs to 
