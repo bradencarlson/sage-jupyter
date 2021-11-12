@@ -13,7 +13,7 @@ Notebooks onto your machine.
 
 > kernel not found
 
-While opening the SageMath files with Jupyter Notebooks.
+**While opening the SageMath files with Jupyter Notebooks.**
 
 Note that on some systems, it may be neccessary to link the sagemath kernel to the installation of Jupyter Notebooks so that Jupyter Notebooks knows the commands 
 that we will be using in SageMath.  This can be done in the following way.  
@@ -24,4 +24,9 @@ Run the command `sudo jupyter kernelspec install $SAGEMATH$/jupyter/kernels/sage
 
 ### Windows
 
+A typical installation of SageMath in Windows includes a desktop icon labeled `SageMath Notebook`, that will open a Jupyter Notebook running the SageMath kernel. 
+Use this option if wanting to run SageMath inside of Jupyter Notebooks.  See [SageWindows](https://wiki.sagemath.org/SageWindows) for more details.
+
 ### MacOS
+
+This section coming soon.
