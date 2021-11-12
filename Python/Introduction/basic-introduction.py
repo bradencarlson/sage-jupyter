@@ -159,6 +159,8 @@ x+y
 # 
 # Above, we see that lists are a data type that we are able to use.  These are very useful and they are defined by enclosing the desired information in the list with brackets, each separated by a comma.  See the example below.
 
+# ### Lists
+
 # In[ ]:
 
 
@@ -174,7 +176,7 @@ print(type(y))
 # > y[0] = 5  
 # > print(y)
 # 
-# which will print out the first element of y, which is 2, then will change the first element of y to 5, then will print the list y.  Note that the first element of a list is in spot zero.  Also, attempting to access an invalid index of a list will result in an error.  For example, try to run the following code.
+# which will print out the first element of y, which is 2, then will change the first element of y to 5, then will print the list y.  Note that the first element of a list is in spot zero, not one.  Also, attempting to access an invalid index of a list will result in an error.  For example, try to run the following code.
 
 # In[ ]:
 
@@ -183,8 +185,6 @@ y = [1,10,30,40] # spots 0,1,2,3 are available
 print(y[4])
 
 
-# There is much to learn about many different data types and how the all play together.  This document mainly uses the part of SageMath that is inherited from Python, with the notable exception of the Integer Ring class that we have been introduced to.  For more information about data types in Python please see [Python Data Types](https://www.w3schools.com/python/python_datatypes.asp) by W3Schools.
-# 
 # At this point, we might be tempted to try something such as multiplying all of the elements in a list by some number, much as we would with a vector, run the following code and notice that no error messages are given.
 
 # In[ ]:
@@ -203,3 +203,88 @@ print(y)
 
 
 # We should see two copies of the list `x`, one after the other, stored in `y`.  So it did not multiply each element by 2, but rather, made two copies of the list!  Take some time to experiment with lists, for we will see these often in our study of Abstract Algebra.
+# 
+# There are many predefined methods that we have access to from Python while using lists.  For example, in addition to changing the content of lists by using an index, as so:
+# 
+# > x = [1, 2, 3]  
+# > x[1] = 4
+# 
+# We can also append elements onto the end of a list.  We do this by calling the `.append()` method, like so:
+
+# In[ ]:
+
+
+x = [1, 2, 3]
+print(f"The original value of x: {x}")
+
+# add two new elements to the end of the list
+x.append(4)
+x.append(5)
+print(f"The new value of x: {x}")
+
+
+# In addition to appending elements to the end of the list, we can also insert elements into any spot we wish, using the `.insert()` method.  This method requires two parameters, first, the position of the new element, and second, the new element itself.  See the following example.
+
+# In[ ]:
+
+
+x = ["Cars", "are", "cool"]
+
+# add a new word to our list
+x.insert(2,"not")
+
+# print out the new list
+print(x)
+
+
+# Notice again that the first spot in a list is at index zero, not one.  So to make the word "not" the third element of the list, we use the index 2. Take some time to practice using lists to familiarize yourself with this concept.  
+# 
+# So far, we have discussed adding more elements into our lists.  Now we will discuss removing elements from our lists.  We have a few ways of doing so:
+# 
+# * The `del` operator
+# * The `.pop()` method
+# * The `.remove()` method
+# 
+# We will first discuss the `del` operator.  Say we have a list, and we wish to remove the element in the second spot, we can do so without knowing what is in that spot as follows:
+
+# In[ ]:
+
+
+x = [4, "Hello", 4, 1, 8]
+
+# remove the string "Hello" from the list
+del x[1]
+
+# print out x
+print(x)
+
+
+# Just as the `.append()` method adds a new element to the end of the list, the `.pop()` element takes an element off the end of the list.  There is something else happening with the `.pop()` method as well though, this method has a `return` value, something we will discuss more in the future.  This means that if we wish to use that element that this method takes off the end of the array, we can use the `.pop()` method to assign its value elsewhere.  See the following example.
+
+# In[ ]:
+
+
+x = [45, 65, 23, 12,76, 92, 37, 19]
+# take the last value of x and assign it to y
+y = x.pop()
+
+# print out x and y
+print(x)
+print(y)
+
+
+# Finally, similar to the `.insert()` method, the `.remove()` method takes an element out of our list, even if we do not know the index that belongs to it.  Note that if multiple instances of the same element exist in the list, `.remove()` will remove only the first one.  For example, run the following code.
+
+# In[ ]:
+
+
+x = ["hello", 45, 23, 2, 4, 90, 45, 23, "hello"]
+
+# remove the first instance of the number 23
+x.remove(23)
+
+# print out x
+print(x)
+
+
+# There is much to learn about many different data types and how the all play together.  This document mainly uses the part of SageMath that is inherited from Python, with the notable exception of the Integer Ring class that we have been introduced to.  For more information about data types in Python please see [Python Data Types](https://www.w3schools.com/python/python_datatypes.asp) by W3Schools.
