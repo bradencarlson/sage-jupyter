@@ -72,6 +72,59 @@ average = total/3
 print(f"The average of these three numbers is {average}")
 
 
+# It is important to know that Python (and by extension, SageMath) follows the order of operations.  Thus if we run the code 
+#  
+# > 5+4\*3-(10+4)\*\*2
+# 
+# We would get exactly what we would expect to, since Python knows what we mean when we type this in.
+# 
+
+# In[ ]:
+
+
+5+4*3-(10+4)**2
+
+
+# This is important to know, although we may not use it much in our study of Abstract Algebra. 
+# 
+# Another thing to note, in Python, we are allowed to perform multiple assignments at once.  We will demonstrate with the following code.
+
+# In[ ]:
+
+
+x, y, z = 1, 5, 6
+
+print(x)
+print(y)
+print(z)
+
+
+# We can see that the line 
+# 
+# > x, y, z = 1, 5, 6
+# 
+# assigns $x\rightarrow 1$, $y\rightarrow 5$, and $z\rightarrow 6$, in the order that they were declared.  This is useful for writing compact code.  
+
+# #### Comments
+# 
+# We will use many, many comments.  Comments help us to understand what code is doing (both others' code and our own when looking back on it).  Most of the code here in this project will have comments or commentary to go along with it.  To write a comment in our code in Python, or in SageMath, we use the `#` symbol.  This tells the Python interpreter that the line following that symbol is not code and does not need to be run.  See the following code for an example. 
+
+# In[ ]:
+
+
+# This line is a comment
+x, y = 1, 2
+
+# here we print out the values of x and y
+print(x, " ", y)
+
+# change the value of x to be 17
+x = 17
+
+# print out the new value of x
+print(x)
+
+
 # ## Types of Data
 
 # In SageMath (and any other object oriented programming language), any kind of data or information we put into the code is assigned (or rather declared) as a type of object.  To see this in action, run the code below and observe the output.
