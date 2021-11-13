@@ -33,4 +33,12 @@ If a section of this Project needs to be explained better, please let us know by
 2. If none exists, please feel free to open an Issue and tell us what document you would like to see explained better, as well as what topic in the document
 needs to be expanded on.
 
+## Pull Requests
+
+Before requesting a pull request, please ensure that you have gone through the following process:
+
+1. Submit an Issue request, if one does not exist for the proposed change.
+2. After the Issue has been discussed, and the need for a pull request has been established, feel free to create a Pull Request, and submit the request once it 
+is ready for review.
+
 **Thank you for contributing to Project Sage-Jupyter**
