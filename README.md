@@ -66,4 +66,5 @@ This series can be followed however the user wishes, but was designed to go in t
     5. [Coding Theory](Cryptography/AlgebraicCoding.ipynb)
 4. Other Cryptographic Schemes
     1. [Vigenere Cipher](Cryptography/VigenereCipher.ipynb) 
+    2. [Autokey Cipher](Cryptography/AutoKeyCipher.ipynb)
 5. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
