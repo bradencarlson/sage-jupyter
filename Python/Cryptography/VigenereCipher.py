@@ -3,7 +3,13 @@
 
 # # Vigenere Cipher
 
-# Here we will take a look at the Vigenere Cipher.  This cipher is performed by first choosing a secret code word.  The code word is known by both the sending party and the recieving party.  The plaintext and the code word are then both encoded according to some scheme.  We then take the encoded message, and we add the first number of the codeword to the first number of the plaintext, the second number of the codeword to the second letter of the plaintext, and so on until we reach the end of the message, repeating the codeword as many times that is necessary.  Let the secret code word be CAT, and let our encoding scheme be $A\rightarrow 00$, $B\rightarrow 01$, $\dots$, $Z\rightarrow 25$. 
+# Here we will take a look at the Vigenere Cipher.  This cipher is performed by first choosing a secret code word.  
+# The code word is known by both the sending party and the recieving party.  The plaintext and the code word are 
+# then both encoded according to some scheme.  We then take the encoded message, and we add the first number of the 
+# codeword to the first number of the plaintext, the second number of the codeword to the second letter of the 
+# plaintext, and so on until we reach the end of the message, repeating the codeword as many times that is necessary. 
+# Let the secret code word be CAT, and let our encoding scheme be $A\rightarrow 00$, $B\rightarrow 01$, $\dots$, 
+# $Z\rightarrow 25$. 
 # 
 # $$ \begin{array}{ccccccc}
 #   & A & T & T & A & C & K \\
@@ -100,7 +106,9 @@ def VigenereDecrypt(ciphertext: str, codeword: str):
     return alphabetize(plaintext)
 
 
-# Here we have an example of this code in use.  We use the same message as the example above, as well as the same code word.  We call the `VigenereEncrypt()` method to encrypt the word ATTACK, then we demostrate the `VigenereDecrypt()` function to decrypt the message CTMCCD.
+# Here we have an example of this code in use.  We use the same message as the example above, as well as the 
+# same code word.  We call the `VigenereEncrypt()` method to encrypt the word ATTACK, then we demostrate the 
+# `VigenereDecrypt()` function to decrypt the message CTMCCD.
 
 # In[ ]:
 
