@@ -12,13 +12,16 @@
 # * The Quaternion Group  
 # * And many others
 # 
-# More information about what named groups are available can be found in your local sage distribution, for example, on my computer, opening the file
+# More information about what named groups are available can be found in your local sage distribution, for example, on my 
+# computer, opening the file
 # 
 # > /usr/lib/python3/dist-packages/sage/groups/perm-gps/pergroup_named.py
 # 
-# provides much information about other types of groups that can use defined.  Most of these we will not use in this series of documents, but they are there for you to use if would like.  
+# provides much information about other types of groups that can use defined.  Most of these we will not use in this 
+# series of documents, but they are there for you to use if would like.  
 # 
-# We begin with the Dihedral Group.  Considering the symmetries of a triangle, we can define the Dihedral Group of order 3 by writting the following:
+# We begin with the Dihedral Group.  Considering the symmetries of a triangle, we can define the Dihedral Group of order 
+# 3 by writting the following:
 
 # In[ ]:
 
@@ -35,7 +38,12 @@ T
 T.list()
 
 
-# In the above list, we see the six elements listed of the Dihedral Group of order six.  SageMath uses a notation that we may not have seen before if we are still being introduced to Groups in Abstract Algebra.  It is refered to as cycle notation, and if you are in an Undergraduate Abstract Algebra class, you will probably be introduced to cycle notation soon.  A cycle $ (1,3,2) $ in sage denotes a permutation that sends $1\rightarrow 3$, $3\rightarrow 2$ and $2\rightarrow 1$, they are used extensively in Group theory with permutations.  So in the Dihedral group above, we see the two rotations of a triangle, and the three reflections, as well as the identity $()$. 
+# In the above list, we see the six elements listed of the Dihedral Group of order six.  SageMath uses a notation that we 
+# may not have seen before if we are still being introduced to Groups in Abstract Algebra.  It is refered to as cycle 
+# notation, and if you are in an Undergraduate Abstract Algebra class, you will probably be introduced to cycle notation soon.  
+# A cycle $ (1,3,2) $ in sage denotes a permutation that sends $1\rightarrow 3$, $3\rightarrow 2$ and $2\rightarrow 1$, they 
+# are used extensively in Group theory with permutations.  So in the Dihedral group above, we see the two rotations of a triangle,
+# and the three reflections, as well as the identity $()$. 
 # 
 # We can specify elements of this group by writing the following:
 
@@ -85,7 +93,8 @@ T.cayley_table()
 S5.cayley_table()
 
 
-# Another great use of SageMath for groups is the `cayley_graph()` function.  It provides a similar operation as the function `cayley_table()` but provides a graphic to visualize the structure of the group.
+# Another great use of SageMath for groups is the `cayley_graph()` function.  It provides a similar operation as the function 
+# `cayley_table()` but provides a graphic to visualize the structure of the group.
 
 # In[ ]:
 
