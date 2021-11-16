@@ -3,11 +3,16 @@
 
 # # The Group of Integers mod *n*
 
-# In this file, we will talk breifly about using Sage to perform modular arithmetic, and then talk about the Integers mod *n* as a group.  
+# In this file, we will talk breifly about using Sage to perform modular arithmetic, and then talk about the Integers mod *n* 
+# as a group.  
 # 
-# The integers mod *n* are implemented as a class called `IntegerModRing` in SageMath.  Hinting at the fact that the integers mod *n* are in fact a ring, even though maybe at this point we may not be aware of that yet.  Below we define `R` to be the set of integers mod 12, then we define two elements `a` and `b` of that group and print out the result when they are added together.  
+# The integers mod *n* are implemented as a class called `IntegerModRing` in SageMath.  Hinting at the fact that the integers 
+# mod *n* are in fact a ring, even though maybe at this point we may not be aware of that yet.  Below we define `R` to be the 
+# set of integers mod 12, then we define two elements `a` and `b` of that group and print out the result when they are added together.  
 # 
-# As we will see in the future, this representation of a group does not offer us a much as we might wish for, such the ability to print out a Cayley Table, but the integers are simple enough that a computer is not needed to generate the Cayley table for this group.  
+# As we will see in the future, this representation of a group does not offer us a much as we might wish for, such the ability 
+# to print out a Cayley Table, but the integers are simple enough that a computer is not needed to generate the Cayley table for 
+# this group.  
 
 # In[ ]:
 
@@ -37,11 +42,13 @@ b = R(4)
 print(a*b)
 
 
-# You will notice that the following code does not do any modular arithmetic, but rather a regular computation on the integers, this is because up untill now we have been declaring $a$ and $b$ as elements of the ring `R`, as so
+# You will notice that the following code does not do any modular arithmetic, but rather a regular computation on the integers,
+# this is because up untill now we have been declaring $a$ and $b$ as elements of the ring `R`, as so
 # 
 # > a = R(3)
 # 
-# When we specify that $a$ needs to belongs to the ring `R`, then SageMath knows to apply the correct binary operations on that element.
+# When we specify that $a$ needs to belongs to the ring `R`, then SageMath knows to apply the correct binary operations on that
+# element.
 
 # In[ ]:
 
@@ -73,4 +80,5 @@ print(inverse_mod(5,12))
 print(power_mod(5,1023,45))
 
 
-# For more information about modular arithmetic, visit [Group Theory and Sage](https://doc.sagemath.org/html/en/thematic_tutorials/group_theory.html#group-theory).
+# For more information about modular arithmetic, visit 
+# [Group Theory and Sage](https://doc.sagemath.org/html/en/thematic_tutorials/group_theory.html#group-theory).
