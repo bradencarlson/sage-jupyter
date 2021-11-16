@@ -5,7 +5,11 @@
 
 # ## Loops and Iteration
 
-# Previously, we saw how to declare lists for our use, and how to access their elements.  In our study of Abstract Algebra, there will be many situations where we need to perform an operation many times on many different elements.  One example of this that we will see in the future is computing a Coset of a subgroup with respect to an element in a given group.  For now we will deal with simpler examples.  Consider the list defined below.  If we want to add all the elements of this list together and print out the sum, we could define a new variable called `total`, then use a `for` loop to iterate over each element in the list. Run the next cell.
+# Previously, we saw how to declare lists for our use, and how to access their elements.  In our study of Abstract Algebra, there 
+# will be many situations where we need to perform an operation many times on many different elements.  One example of this that we 
+# will see in the future is computing a Coset of a subgroup with respect to an element in a given group.  For now we will deal with 
+# simpler examples.  Consider the list defined below.  If we want to add all the elements of this list together and print out the sum, 
+# we could define a new variable called `total`, then use a `for` loop to iterate over each element in the list. Run the next cell.
 
 # In[ ]:
 
@@ -27,7 +31,11 @@ for item in x:
 print(total)
 
 
-# There are several new ideas in the cell above.  First of all, `for item in x` is the declaration of the `for` loop.  This tells the program to do some set of actions for each element in the list `x`.  The set of actions that we wish the program to execute for each element in the list `x` is denoted by an indented block of code.  So notice that since the `print(total)` statement is not indented, it is not executed by the for loop, but rather, the program waits until the for loop is finished to execute that line of code.  This same code could have been executed in a different, but similar, way, as follows.
+# There are several new ideas in the cell above.  First of all, `for item in x` is the declaration of the `for` loop.  This tells 
+# the program to do some set of actions for each element in the list `x`.  The set of actions that we wish the program to execute for 
+# each element in the list `x` is denoted by an indented block of code.  So notice that since the `print(total)` statement is not 
+# indented, it is not executed by the for loop, but rather, the program waits until the for loop is finished to execute that line of
+# code.  This same code could have been executed in a different, but similar, way, as follows.
 
 # In[ ]:
 
@@ -46,13 +54,19 @@ for i in range(0,len(x)):
 print(total)
 
 
-# Very similar, but the notable difference is in the syntax of the `for` loop.  This code uses an index to access the items in the list `x` rather than telling the interpreter to access them directly.  That being so, we must tell the program which values of `i` we want it to use.  The command `range(0,len(x))` is how we accomplish this.  This command creates a new list of integers from and including zero, to but not including `len(x)`, which is the length of `x`, in this case 5.  There will situations where one of these methods is advantageous over the other, depending on what our code needs to do.  
+# Very similar, but the notable difference is in the syntax of the `for` loop.  This code uses an index to access the items in the 
+# list `x` rather than telling the interpreter to access them directly.  That being so, we must tell the program which values of `i`
+# we want it to use.  The command `range(0,len(x))` is how we accomplish this.  This command creates a new list of integers from and 
+# including zero, to but not including `len(x)`, which is the length of `x`, in this case 5.  There will situations where one of these 
+# methods is advantageous over the other, depending on what our code needs to do.  
 # 
-# There are other types of ways to perform iteration, such as the while loop, but in this project, we will gain the most mileage out of the for loop.  For more information about how to use loops, please visit [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp)
+# There are other types of ways to perform iteration, such as the while loop, but in this project, we will gain the most mileage out of 
+# the for loop.  For more information about how to use loops, please visit [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp)
 
 # ## Conditional Statements
 
-# Being students of mathematics, conditional statements and logic come up frequently.  Python provides a rich set of options that we can use to implement some logic in our code as we go through some of the topics in Abstract Algebra. Consider the following cell.
+# Being students of mathematics, conditional statements and logic come up frequently.  Python provides a rich set of options that we can 
+# use to implement some logic in our code as we go through some of the topics in Abstract Algebra. Consider the following cell.
 
 # In[ ]:
 
@@ -65,7 +79,9 @@ else:
     print(f"{x} is less than 500")
 
 
-# The second print statement is not evaluated at all, because the conditions for that block of code are not satisfied.  This allows us alot of options when we are using Sage, for example, we will see this when we test to see if two groups are isomorphic, or if two cosets are equal to each other.  Another way we can implement conditional logic is the following.
+# The second print statement is not evaluated at all, because the conditions for that block of code are not satisfied.  This allows us 
+# alot of options when we are using Sage, for example, we will see this when we test to see if two groups are isomorphic, or if two cosets 
+# are equal to each other.  Another way we can implement conditional logic is the following.
 
 # In[ ]:
 
@@ -78,7 +94,9 @@ for item in x:
         print(item)
 
 
-# We should only see two number print out, since only those two numbers are bigger than 5 in the list.  There are many other ways in which we can use conditional statements to perform certain tasks.  We will have plenty of oportunities to practice with these in the future.  For now, take some time and look over the following code and practice using conditional statements in SageMath.
+# We should only see two number print out, since only those two numbers are bigger than 5 in the list.  There are many other ways in 
+# which we can use conditional statements to perform certain tasks.  We will have plenty of oportunities to practice with these in the 
+# future.  For now, take some time and look over the following code and practice using conditional statements in SageMath.
 
 # In[ ]:
 
@@ -120,6 +138,12 @@ for number in x:
 print(f"total between 400 and 500: {FourHundreds}")
 
 
-# One might think this code has the mistake that if the current number being considered is 102, then the conditions for all but the first conditional statement are true, and thus the number would be counted multiple times by the program.  This is not so because the `if..elif..else` statement works together as one conditional statement (`elif` is short for "else if").  Once one of the conditions has been met, none of the others are considered.  So for the number 102, the first condition (number <= 100) is not satisfied, but the second one is, thus it is counted with the `TwoHundreds`, and since one of the conditions was already met, while the rest are true, they are not considered, thus giving us the correct counts at the end. 
+# One might think this code has the mistake that if the current number being considered is 102, then the conditions for all but 
+# the first conditional statement are true, and thus the number would be counted multiple times by the program.  This is not so 
+# because the `if..elif..else` statement works together as one conditional statement (`elif` is short for "else if").  Once one of 
+# the conditions has been met, none of the others are considered.  So for the number 102, the first condition (number <= 100) is not 
+# satisfied, but the second one is, thus it is counted with the `TwoHundreds`, and since one of the conditions was already met, while 
+# the rest are true, they are not considered, thus giving us the correct counts at the end. 
 # 
-# W3Schools has a great introduction to `if..else` command in Python, to learn more, go to [Python Conditions](https://www.w3schools.com/python/python_conditions.asp)
+# W3Schools has a great introduction to `if..else` command in Python, to learn more, go to 
+# [Python Conditions](https://www.w3schools.com/python/python_conditions.asp)
