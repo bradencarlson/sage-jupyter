@@ -3,7 +3,10 @@
 
 # # Hill Cipher
 
-# Below is the code to implement the Hill Cipher, which is an example of a **polyalphabetic cryptosystem**, that is, it does not assign a single ciphertext letter to a single plaintext letter, but rather a ciphertext letter may represent more than one plaintext letter.  This example is from Judson's [Abstract Algebra](http://abstract.ups.edu/sage-aata.html) textbook, example 7.4.  The encryption is based on the matrix 
+# Below is the code to implement the Hill Cipher, which is an example of a **polyalphabetic cryptosystem**, that is, it does 
+# not assign a single ciphertext letter to a single plaintext letter, but rather a ciphertext letter may represent more than 
+# one plaintext letter.  This example is from Judson's [Abstract Algebra](http://abstract.ups.edu/sage-aata.html) textbook,
+# example 7.4.  The encryption is based on the matrix 
 # \begin{equation*}
 # A=\left(\begin{array}{cc}
 # 3 & 5 \\
@@ -12,7 +15,8 @@
 # \end{equation*}
 # and encryptes pairs of letters at a time, rather than one letter at a time.  
 # 
-# The digitize and alphabetize functions are rather similar to the ones found in the CeasarCipher document, the bigest change being that these pair the numbers up so as to form matrices for encryption and decryption.
+# The digitize and alphabetize functions are rather similar to the ones found in the CeasarCipher document, the bigest change 
+# being that these pair the numbers up so as to form matrices for encryption and decryption.
 
 # In[ ]:
 
@@ -96,7 +100,8 @@ def alphabetize(digits):
     return plain_text
 
 
-# Here we define the HillEncrypt and HillDecrypt functions, which take in strings, and encrypt or decrypt them according to the matrices passed into them as parameters.  
+# Here we define the HillEncrypt and HillDecrypt functions, which take in strings, and encrypt or decrypt them according 
+# to the matrices passed into them as parameters.  
 
 # In[ ]:
 
@@ -117,7 +122,8 @@ def HillDecrypt(message, A, b):
     return alphabetize(plain_text)
 
 
-# Here we use MatrixSpaces over the Ring of integers mod 26, to define the matrices used for encryption and decryption.  We use MatrixSpaces rather than ordinary matrices to ensure that the inverse of $A$ is calculated correctly.  
+# Here we use MatrixSpaces over the Ring of integers mod 26, to define the matrices used for encryption and decryption.  
+# We use MatrixSpaces rather than ordinary matrices to ensure that the inverse of $A$ is calculated correctly.  
 
 # In[ ]:
 
