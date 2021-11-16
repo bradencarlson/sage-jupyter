@@ -3,7 +3,10 @@
 
 # # Autokey Cipher
 
-# Here we talk about the Autokey Cipher.  This is similar to the Vigenere Cipher, except that instead of a secret code word, we choose a secret seed letter.  Then after the initial seed letter is used, the message itself is the keyword used for encryption.  We demonstrate this with an example.  Using the same encoding scheme $A\rightarrow 00$, $B\rightarrow 01$, $\dots$, $Z\rightarrow 25$, and choosing our seed letter to be E, we have
+# Here we talk about the Autokey Cipher.  This is similar to the Vigenere Cipher, except that instead of a secret code word,
+# we choose a secret seed letter.  Then after the initial seed letter is used, the message itself is the keyword used for
+# encryption.  We demonstrate this with an example.  Using the same encoding scheme $A\rightarrow 00$, $B\rightarrow 01$, 
+# $\dots$, $Z\rightarrow 25$, and choosing our seed letter to be E, we have
 # 
 # $$
 # \begin{array}{ccccccc}
@@ -17,7 +20,9 @@
 # \end{array}
 # $$
 # 
-# To decrypt, since we know the seed letter E, if we recieve the message ETMTCM, we encode the message and the seed letter, then we subtract the value of the seed letter from the first letter of the message.  The result, then becomes the number that we must subtract from the second letter of the message, and so on, like so:
+# To decrypt, since we know the seed letter E, if we recieve the message ETMTCM, we encode the message and the seed letter, 
+# then we subtract the value of the seed letter from the first letter of the message.  The result, then becomes the number 
+# that we must subtract from the second letter of the message, and so on, like so:
 # 
 # $$
 # \begin{array}{ccccccc}
@@ -115,7 +120,8 @@ def AutoKeyDecrypt(ciphertext: str, seed: str):
     return alphabetize(plaintext)
 
 
-# Here we go through the same example as above, to demonstrate the code above.  We encode the message ATTACK, and then decode the same message.
+# Here we go through the same example as above, to demonstrate the code above.  We encode the message ATTACK, and then 
+# decode the same message.
 
 # In[ ]:
 
