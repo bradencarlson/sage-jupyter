@@ -3,7 +3,8 @@
 
 # # Ceasar Cipher
 
-# These cells define the digitize and alphabetize functions that will be used to encode messages so that we can do some math with the encoded message. Do not change these cells.
+# These cells define the digitize and alphabetize functions that will be used to encode messages so that we can do some math 
+# with the encoded message. Do not change these cells.
 
 # In[ ]:
 
@@ -77,7 +78,8 @@ def alphabetize(digits):
         
 
 
-# These following cells define the CeasarEncrypt and the CeasarDecrypt functions that will be used to take an encoded message and encrypt it with the CeasarCipher, or any affine cipher that is desired. Do not change these cells. 
+# These following cells define the CeasarEncrypt and the CeasarDecrypt functions that will be used to take an 
+# encoded message and encrypt it with the CeasarCipher, or any affine cipher that is desired. Do not change these cells. 
 
 # In[ ]:
 
@@ -103,7 +105,8 @@ def CeasarDecrypt(cipher_text, a, b):
 
 # ## Examples
 
-# Here we go through some examples, of defining a message, encrypting that message, and then decrypting the message with the Ceasar Cipher.
+# Here we go through some examples, of defining a message, encrypting that message, and then decrypting the 
+# message with the Ceasar Cipher.
 
 # #### Example 1
 
