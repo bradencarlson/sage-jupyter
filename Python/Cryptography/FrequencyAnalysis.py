@@ -3,9 +3,11 @@
 
 # # Frequency Analysis
 
-# Here we define the variables and methods needed to easily perform frequency analysis in order to break the Ceasar Cipher defined earlier in this series of documents.  
+# Here we define the variables and methods needed to easily perform frequency analysis in order to break the Ceasar Cipher 
+# defined earlier in this series of documents.  
 # 
-# In the cell below, we define an array of all the characters of the English alphabet, as well as a dictionary that corresponds to their encoding, as was defined in the Ceasar Cipher document.  
+# In the cell below, we define an array of all the characters of the English alphabet, as well as a dictionary that 
+# corresponds to their encoding, as was defined in the Ceasar Cipher document.  
 # 
 # If you have not seen dictionaries before, remember that they are a data structure that contains `(key: value)` pairs of data.  
 
@@ -19,7 +21,9 @@ alpha = {'a':0, 'b':1,'c':2,'d':3,'e':4,'f':5,
          's':18,'t':19,'u':20,'v':21,'w':22,'x':23,'y':24,'z':25}
 
 
-# Here we define the `create_frequencies()` function, this function reads through the `words.txt` file, which is just a dictionary (a real one, not the data structure discussed above) in .txt form, and counts each letter in the dictionary, then goes through and divides each count by the total number of letters to obtain a percentage for each letter.
+# Here we define the `create_frequencies()` function, this function reads through the `words.txt` file, which is just a 
+# dictionary (a real one, not the data structure discussed above) in .txt form, and counts each letter in the dictionary, 
+# then goes through and divides each count by the total number of letters to obtain a percentage for each letter.
 
 # In[ ]:
 
@@ -41,7 +45,8 @@ def create_frequencies():
     return letters
 
 
-# Here, we define the actual function that will be used to perform frequency analysis.  We go through the ciphertext provided, and find the frequencies of each letter.  Then, we output the five 'most likely' options for the shift cipher. 
+# Here, we define the actual function that will be used to perform frequency analysis.  We go through the ciphertext provided, 
+# and find the frequencies of each letter.  Then, we output the five 'most likely' options for the shift cipher. 
 
 # In[ ]:
 
@@ -88,7 +93,8 @@ def analize(ciphertext: str):
         return most_likely
 
 
-# Here we go through some example.  The following was encrypted using a simple shift cipher.  Can we detect which cipher was used without using brute force?
+# Here we go through some example.  The following was encrypted using a simple shift cipher.  Can we detect which cipher
+# was used without using brute force?
 
 # In[ ]:
 
