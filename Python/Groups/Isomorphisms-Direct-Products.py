@@ -5,7 +5,8 @@
 
 # ## Isomorphisms
 
-# Here we explore Isomorphisms in SageMath.  Here we define a group $G$, then we compare it to a few other groups to see if it is isomorphic to that group.
+# Here we explore Isomorphisms in SageMath.  Here we define a group $G$, then we compare it to a few other groups to see if 
+# it is isomorphic to that group.
 
 # In[ ]:
 
@@ -22,7 +23,8 @@ print(f"is G isomorphic to S6: {G.is_isomorphic(S6)}")
 print(f"is G isomorphic to H: {G.is_isomorphic(H)}")
 
 
-# An excellent exercise for any student being introduced to groups is to create a permutation group that is isomorphic to the group of rigid motions of a cube.  This can done in the following ways:
+# An excellent exercise for any student being introduced to groups is to create a permutation group that is isomorphic to 
+# the group of rigid motions of a cube.  This can done in the following ways:
 # 
 # * Note that there are four diagonals, and thus each rigid motion of the cube is some permutation of the diagonals
 # * There are eight corners.  Each rigid motion of the cube is some permutation of the corners of the cube
