@@ -3,14 +3,9 @@
 
 # # RSA Encryption
 
-# In this document, we talk about the neccessary tools to perform RSA encryption.  Below we have the functions PadMessage 
-# and DepadMessage, we are thoroughly commented if you wish to read over how these functions work.  What these functions 
-# do is turn our String message into a list of numbers, each of which is no bigger than our pulic modulus.  Once again, 
-# If you have not done so, I would highly recommend watching Dr. Misseldine's 
-# [RSA Encryption](https://www.youtube.com/watch?v=LcKquwXkhzU&list=PLz7t89zv8Lp2D6xQOG7kUEbN1KP5u-mpH&index=79) 
-# video, he explains the math behind RSA encryption, and this code was adapted from his program written in MAGMA.  
+# In this document, we talk about the neccessary tools to perform RSA encryption.  Below we have the functions PadMessage and DepadMessage, we are thoroughly commented if you wish to read over how these functions work.  What these functions do is turn our String message into a list of numbers, each of which is no bigger than our pulic modulus.  Once again, If you have not done so, I would highly recommend watching Dr. Misseldine's [RSA Encryption](https://www.youtube.com/watch?v=LcKquwXkhzU&list=PLz7t89zv8Lp2D6xQOG7kUEbN1KP5u-mpH&index=79) video, he explains the math behind RSA encryption, and this code was adapted from his program written in MAGMA.  
 
-# In[2]:
+# In[ ]:
 
 
 
@@ -128,7 +123,7 @@ def PadMessage(message: str, N: int):
     
 
 
-# In[1]:
+# In[ ]:
 
 
 
@@ -237,10 +232,9 @@ def DepadMessage(digits):
     return plaintext
 
 
-# Here is where the magic happens, we define the ExpRSA function, as well as the EncryptRSA and DecryptRSA functions 
-# that we will use to encrypt and decrypt messages using the RSA cryptosystem.  The code is commented below.  
+# Here is where the magic happens, we define the ExpRSA function, as well as the EncryptRSA and DecryptRSA functions that we will use to encrypt and decrypt messages using the RSA cryptosystem.  The code is commented below.  
 
-# In[11]:
+# In[ ]:
 
 
 def ExpRSA(plaintext, e, N):
@@ -264,12 +258,9 @@ def DecryptRSA(ciphertext, d, N):
     return DepadMessage(ExpRSA(ciphertext, d, N))
 
 
-# Here we go through our first example.  The encryption and decryption keys here were taken from Judson's 
-# [Abstract Algebra: Theory and Applications](http://abstract.ups.edu/sage-aata.html).  In the example below, 
-# `n` is the modulus, and `e` and `d` are the encryption and decryption keys, respectfully.  The message is a 
-# passage from Alexandre Dumas' *The Counte of Monte Cristo*.
+# Here we go through our first example.  The encryption and decryption keys here were taken from Judson's [Abstract Algebra: Theory and Applications](http://abstract.ups.edu/sage-aata.html).  In the example below, `n` is the modulus, and `e` and `d` are the encryption and decryption keys, respectfully.  The message is a passage from Alexandre Dumas' *The Counte of Monte Cristo*.
 
-# In[13]:
+# In[ ]:
 
 
 n = 3551
@@ -283,4 +274,45 @@ decrypted  = DecryptRSA(encrypted, 1997, n)
 
 print(encrypted)
 print(decrypted)
+
+
+# Here we go over a more sophisticated example.  We define two random primes to be used in the encryption scheme, then we calculate $n=pq$, as well as $\phi(n)=(p-1)(q-1)$, then using the `inverse_mod()` function, we calculate the decryption key based on the public encrypting exponent 29.  
+
+# In[ ]:
+
+
+# select two random primes to use for encryption.
+p = random_prime(10^75,10^85,True)
+q = random_prime(10^75,10^85,True)
+
+# calculate their product n
+n = p*q
+
+# print out some information about q and p
+print("p and q must be kept secret:")
+print(f"p: {p}")
+print(f"q: {q}\n")
+
+# calculate phi(n), this must be kept secret
+phi_n = (p-1)*(q-1)
+
+# if phi(n) happens to be a multiple of 29, then select e to be 31
+# otherwise, choose e=29
+if phi_n % 29 == 0:
+    e = 31
+else:
+    e = 29
+
+# calculate the inverse of e mod phi(n)
+d = inverse_mod(e,phi_n)
+
+# define our message and encrypt it using the scheme that we have created.
+message = "What wisdom is there that is greater than kindness? - Jean-Jacques Rousseau"
+encrypted = EncryptRSA(message,e,n)
+print(f"encrypted message: {encrypted}")
+
+
+# decrypt the encrypted message to see the original message.
+decrypted = DecryptRSA(encrypted,d,n)
+print(f"decrypted message: {decrypted}")
 
