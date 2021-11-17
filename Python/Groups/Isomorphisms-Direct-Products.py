@@ -53,7 +53,7 @@ edp
 
 # In[ ]:
 
-
+print("The direct product of A4 and H")
 edp.list()
 
 
@@ -67,6 +67,10 @@ Z2 = CyclicPermutationGroup(2)
 
 G = direct_product_permgroups([Z1,Z2])
 
+print("The group G")
 print(G.list())
+
+print()
+print("Is G isomorphic to K?")
 print(G.is_isomorphic(K))
 
