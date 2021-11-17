@@ -20,6 +20,7 @@
 R = IntegerModRing(12)
 a = R(11)
 b = R(10)
+print(f"The result of {a} + {b}:")
 print(a+b)
 
 
@@ -27,7 +28,7 @@ print(a+b)
 
 # In[ ]:
 
-
+print(f"The result of {a} * {b}:")
 print(a*b)
 
 
@@ -39,6 +40,7 @@ print(a*b)
 a = R(3)
 b = R(4)
 
+print(f"The result of {a} * {b}:")
 print(a*b)
 
 
@@ -56,11 +58,13 @@ print(a*b)
 # the way we don't want to do this
 a = 5
 b = 7
+print(f"The result of {a} + {b}:")
 print(a+b)
 
 # the way we do want to do this
 a = R(5)
 b = R(7)
+print(f"The result of {a} + {b}:")
 print(a+b)
 
 
@@ -76,8 +80,8 @@ print(a+b)
 # In[ ]:
 
 
-print(inverse_mod(5,12))
-print(power_mod(5,1023,45))
+print(f"The inverse of 5 mod 12 is :{inverse_mod(5,12)}")
+print(f"5^1023 mod 45 is : {power_mod(5,1023,45)}")
 
 
 # For more information about modular arithmetic, visit 
