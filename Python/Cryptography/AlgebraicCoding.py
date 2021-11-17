@@ -27,10 +27,12 @@ Z36_2 = MatrixSpace(GF(2),3,6)
 G = Z63_2([1,0,0, 0,1,0, 0,0,1, 0,1,1, 1,0,1, 1,1,0])
 H = Z36_2([0,1,1,1,0,0, 1,0,1,0,1,0, 1,1,0,0,0,1])
 
+print("Matrix used for encoding:")
 print(G)
 
 print()
 
+print("Matrix used for checking transmissions:")
 print(H)
 
 
@@ -168,6 +170,7 @@ transmitted = T.transmit(encoded)
 checked = H*transmitted
 
 # print H for reference
+print("Matrix used for checking transmissions:")
 print(H)
 print()
 
@@ -176,8 +179,9 @@ print()
 
 # print both the message that was transmitted and the syndrome of that 
 # message
-print(transmitted.transpose())
-print(checked.transpose())
+print(f"Message sent: {encoded.transpose()}") 
+print(f"Message recieved: {transmitted.transpose()}")
+print(f"Syndrome: {checked.transpose()}")
 
 
 # By running the above cell several times, occasionally we should see an error apear in the transmitted message, and the 
