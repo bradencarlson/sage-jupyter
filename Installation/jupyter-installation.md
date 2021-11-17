@@ -1,6 +1,10 @@
 # Installing Jupyter Notebooks
 
-Jupyter Notebooks is a convenient way of veiwing, editing, and dealing with files in general, not just Sage files.  Although we will focus on using Sage in Jupyter Notebooks, it can be used for many other things.  
+**Note that on most systems SageMath will install Jupyter Notebooks alongside it.  In linux try the command** `sage -n jupyter` **or in windows look for the Sage 
+Notebook icon to open SageMath in a Notebook.  If this fails, try installing Jupyter Notebooks with the instructions below.**
+
+Jupyter Notebooks is a convenient way of veiwing, editing, and dealing with files in general, not just Sage files.  Although we will focus on using Sage in 
+Jupyter Notebooks, it can be used for many other things.  
 
 To install Jupyter Notebooks on Linux, search your package manager for jupyter.
 
