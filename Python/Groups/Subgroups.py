@@ -28,11 +28,13 @@ G = S5.subgroup([I,sigma,tau,mu])
 
 # In[ ]:
 
-
+print("The group G:")
 print(G.list())
 print()
 print(f"The order of G is {G.order()}")
 print(f"Is G abelian? {G.is_abelian()}")
+print()
+print("The cayley table of G:")
 print(G.cayley_table())
 
 
@@ -47,7 +49,7 @@ print(G.cayley_table())
 T = G.cayley_table()
 rows = T.row_keys()
 columns = T.column_keys()
-
+print("testing some of the values of T.row_keys() and T.column_keys():")
 print(f"b={rows[1]}")
 print(f"c={columns[2]}")
 print(f"d={rows[3]}")
@@ -74,6 +76,7 @@ sorted(T.translation().items())
 
 
 T.change_names(names=['1','(4,5)','(1,3)','(1,3)(4,5)'])
+print("The new cayley table for T:")
 print(sorted(T.translation().items()))
 T
 
@@ -86,7 +89,7 @@ T
 
 
 H = S5.subgroup(['(1,3)','(4,5)'])
-
+print("The groups H and G, respectively:")
 print(H.list())
 print(G.list())
 
@@ -105,7 +108,10 @@ T = G.cayley_table()
 names = []
 for item in G:
     names.append(str(item))
+    
 
+print()
+print("The result of renaming all the items in T, then the object T:")
 print(T.translation().items())
 T.change_names(names=names)
 print(T)
