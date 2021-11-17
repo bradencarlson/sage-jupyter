@@ -28,21 +28,53 @@ alpha = {'a':0, 'b':1,'c':2,'d':3,'e':4,'f':5,
 # In[ ]:
 
 
-def create_frequencies():
-    letters = {}
-    count = 0
-    with open('words.txt', 'r') as file:
-        for word in file:
-            for letter in word:
-                if letter in alphabet:
-                    if letter in letters.keys():
-                        letters[letter.lower()] = letters[letter.lower()]+1
-                    else:
-                        letters[letter.lower()] = 1
-                    count = count+1
-    for k in letters.keys():
-        letters[k] = float(letters[k]/count)
-    return letters
+# Here we define the letter_frequencies dictionary, this is the same dictionary that would be created using SageMath 
+# If SageCell had access to the words.txt file found in the project, since SageCell does not have access to this file,
+# we instead define the dictionary explicitly, we have also commented out the create_frequencies() function to 
+# prevent the user from calling this function and crashing the program.
+letter_frequencies = {'a': 0.08028354673082419,
+ 'h': 0.024342984615100982,
+ 'e': 0.1177437939585004,
+ 'd': 0.04119170745646784,
+ 'i': 0.07500530036964317,
+ 'n': 0.05773807877731995,
+ 'g': 0.029569609984974606,
+ 's': 0.09322197948065596,
+ 'l': 0.055759888646147324,
+ 'r': 0.07212189928375874,
+ 'v': 0.009651281767650231,
+ 'k': 0.014186554575371256,
+ 'w': 0.011983444410644986,
+ 'o': 0.060955172699870025,
+ 'f': 0.015259533751832085,
+ 'b': 0.022700330927426418,
+ 'c': 0.0359890489754155,
+ 'u': 0.03669883760589217,
+ 't': 0.05739885512015708,
+ 'm': 0.028445009817206383,
+ 'p': 0.029337315524091332,
+ 'y': 0.018312546666297946,
+ 'x': 0.0033184922983324574,
+ 'j': 0.0025957984200289446,
+ 'z': 0.004387784261128472,
+ 'q': 0.0018012038752615617}
+
+
+#def create_frequencies():
+#    letters = {}
+#    count = 0
+#    with open('words.txt', 'r') as file:
+#        for word in file:
+#            for letter in word:
+#                if letter in alphabet:
+#                    if letter in letters.keys():
+#                        letters[letter.lower()] = letters[letter.lower()]+1
+#                    else:
+#                        letters[letter.lower()] = 1
+#                    count = count+1
+#    for k in letters.keys():
+#        letters[k] = float(letters[k]/count)
+#    return letters
 
 
 # Here, we define the actual function that will be used to perform frequency analysis.  We go through the ciphertext provided, 
@@ -74,7 +106,7 @@ def analize(ciphertext: str):
         for k in frequencies.keys():
             frequencies[k] = float(frequencies[k]/count)
         # get the frequencies from the english dictionary.
-        common = create_frequencies()
+        common = letter_frequencies
         # sort both the ciphertext frequencies and the dictionaries frequencies.
         frequencies_sorted = sorted(((value,key) for (key,value) in frequencies.items()),reverse=True)
         common_sorted = sorted(((value,key) for (key,value) in common.items()),reverse=True)
