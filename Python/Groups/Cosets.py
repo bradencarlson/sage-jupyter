@@ -44,6 +44,7 @@ S4 = SymmetricGroup(4)
 H = S4.subgroup(['(3,4)','(1,2)'])
 
 # print out the original subgroup
+print("This is the original group:")
 print(H.list())
 
 # select an element from S4
@@ -53,6 +54,7 @@ sigma = S4('(2,3)')
 coset = left_coset(H,sigma)
 
 # print out the coset
+print("This is the coset of our subgroup from example one with representative (23)")
 print(coset)
 
 
@@ -92,7 +94,7 @@ def coset_generators(H, G):
 
 # In[ ]:
 
-
+print("Here we calculate a single coset, then print out all the elements of S4 that also generate that coset.")
 gens = coset_generators(H,S4)
 print(sigma)
 print(H.list())
@@ -114,6 +116,7 @@ print(gens[str(sorted(left_coset(H,sigma)))])
 # In[ ]:
 
 
+print("Here we print all of the cosets of the subgroup H in S4 and which elements of S4 generate those cosets.")
 for k in gens.keys():
     print(f"{k}")
     for v in gens[k]:
@@ -134,12 +137,12 @@ sorted(left_coset(H,S4('(1,3,2,4)')))==sorted(right_coset(H,S4('(1,3,2,4)')))
 
 # In[ ]:
 
-
+print("This is the set of left cosets of H in S4.")
 S4.cosets(H,side='left')
 
 
 # In[ ]:
 
-
+print("This is the set of right cosets of H in S4.")
 S4.cosets(H,side='right')
 
