@@ -3,7 +3,12 @@
 
 # # RSA Encryption
 
-# In this document, we talk about the neccessary tools to perform RSA encryption.  Below we have the functions PadMessage and DepadMessage, we are thoroughly commented if you wish to read over how these functions work.  What these functions do is turn our String message into a list of numbers, each of which is no bigger than our pulic modulus.  Once again, If you have not done so, I would highly recommend watching Dr. Misseldine's [RSA Encryption](https://www.youtube.com/watch?v=LcKquwXkhzU&list=PLz7t89zv8Lp2D6xQOG7kUEbN1KP5u-mpH&index=79) video, he explains the math behind RSA encryption, and this code was adapted from his program written in MAGMA.  
+# In this document, we talk about the neccessary tools to perform RSA encryption.  Below we have the functions 
+# PadMessage and DepadMessage, we are thoroughly commented if you wish to read over how these functions work.  
+# What these functions do is turn our String message into a list of numbers, each of which is no bigger than our 
+# pulic modulus.  Once again, If you have not done so, I would highly recommend watching Dr. Misseldine's 
+# [RSA Encryption](https://www.youtube.com/watch?v=LcKquwXkhzU&list=PLz7t89zv8Lp2D6xQOG7kUEbN1KP5u-mpH&index=79) 
+# video, he explains the math behind RSA encryption, and this code was adapted from his program written in MAGMA.  
 
 # In[ ]:
 
@@ -232,7 +237,8 @@ def DepadMessage(digits):
     return plaintext
 
 
-# Here is where the magic happens, we define the ExpRSA function, as well as the EncryptRSA and DecryptRSA functions that we will use to encrypt and decrypt messages using the RSA cryptosystem.  The code is commented below.  
+# Here is where the magic happens, we define the ExpRSA function, as well as the EncryptRSA and DecryptRSA 
+# functions that we will use to encrypt and decrypt messages using the RSA cryptosystem.  The code is commented below.  
 
 # In[ ]:
 
@@ -258,7 +264,10 @@ def DecryptRSA(ciphertext, d, N):
     return DepadMessage(ExpRSA(ciphertext, d, N))
 
 
-# Here we go through our first example.  The encryption and decryption keys here were taken from Judson's [Abstract Algebra: Theory and Applications](http://abstract.ups.edu/sage-aata.html).  In the example below, `n` is the modulus, and `e` and `d` are the encryption and decryption keys, respectfully.  The message is a passage from Alexandre Dumas' *The Counte of Monte Cristo*.
+# Here we go through our first example.  The encryption and decryption keys here were taken from Judson's
+# [Abstract Algebra: Theory and Applications](http://abstract.ups.edu/sage-aata.html).  In the example below, 
+# `n` is the modulus, and `e` and `d` are the encryption and decryption keys, respectfully.  The message is a 
+# passage from Alexandre Dumas' *The Counte of Monte Cristo*.
 
 # In[ ]:
 
@@ -276,7 +285,9 @@ print(encrypted)
 print(decrypted)
 
 
-# Here we go over a more sophisticated example.  We define two random primes to be used in the encryption scheme, then we calculate $n=pq$, as well as $\phi(n)=(p-1)(q-1)$, then using the `inverse_mod()` function, we calculate the decryption key based on the public encrypting exponent 29.  
+# Here we go over a more sophisticated example.  We define two random primes to be used in the encryption scheme, 
+# then we calculate $n=pq$, as well as $\phi(n)=(p-1)(q-1)$, then using the `inverse_mod()` function, we calculate
+# the decryption key based on the public encrypting exponent 29.  
 
 # In[ ]:
 
