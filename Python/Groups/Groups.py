@@ -34,7 +34,7 @@ T
 
 # In[ ]:
 
-
+print("Here we list all the elements of the group T: D3")
 T.list()
 
 
@@ -58,7 +58,7 @@ tau = T('(2,3)')
 
 # In[ ]:
 
-
+print("These are the results of the calculations sigma*tau, tau*sigma, sigma^3, and tau^(-1)")
 print(sigma*tau)
 print(tau*sigma)
 print(sigma^3)
@@ -81,7 +81,7 @@ print(f"Is S5 abelian? {S5.is_abelian()}")
 
 # In[ ]:
 
-
+print("Here we print out the cayley table for T")
 T.cayley_table()
 
 
@@ -89,7 +89,7 @@ T.cayley_table()
 
 # In[ ]:
 
-
+print("The cayley table for S5")
 S5.cayley_table()
 
 
@@ -98,7 +98,7 @@ S5.cayley_table()
 
 # In[ ]:
 
-
+print("This is the cayley graph for T")
 T.cayley_graph()
 
 
