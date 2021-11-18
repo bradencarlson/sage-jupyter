@@ -3,9 +3,11 @@
 
 # # Conjugacy Classes
 
-# Here we discuss conjugacy classes.  Given some element $g$ in a group $G$.  We can calculate the conjugate of $g$ with respect to some other element $x\in G$, by calculating the following
+# Here we discuss conjugacy classes.  Given some element $g$ in a group $G$.  We can calculate the conjugate of $g$ 
+# with respect to some other element $x\in G$, by calculating the following
 # $$ ^gx = xgx^{-1}  $$
-# The set of all conjugates of $g$ in $G$, is denoted by $^Gg$, and is called a conjugacy class.  We implement code in this file to calculate the conjugacy classes of a group.
+# The set of all conjugates of $g$ in $G$, is denoted by $^Gg$, and is called a conjugacy class.  We implement code
+# in this file to calculate the conjugacy classes of a group.
 
 # In[ ]:
 
@@ -24,7 +26,8 @@ def conjugacy_class(element , group):
     return conjugates
 
 
-# Here we go through our first example.  We define the set $S_5$, and we define $\sigma$ to be $(123)\in S_5$.  We then use our newly defined function to calculate the conjugacy class of $\sigma$ in $S_5$.
+# Here we go through our first example.  We define the set $S_5$, and we define $\sigma$ to be $(123)\in S_5$.  We 
+# then use our newly defined function to calculate the conjugacy class of $\sigma$ in $S_5$.
 
 # In[ ]:
 
@@ -42,7 +45,8 @@ con_class = conjugacy_class(sigma, S5)
 print(f"The conjugacy class of {sigma} is: {con_class}")
 
 
-# Another usefull function that we will need in our toolbox is the function defined in the following cell.  This function takes in a group and returns all the conjugacy classes of that group.  We first define the function, then give an example.
+# Another usefull function that we will need in our toolbox is the function defined in the following cell.  This function
+# takes in a group and returns all the conjugacy classes of that group.  We first define the function, then give an example.
 
 # In[ ]:
 
@@ -85,7 +89,10 @@ for k in cc:
     print(f"{k}")
 
 
-# Here we also define a function that not only will tell us what the conjugacy classes of a group are, but also which elements of the group those conjugacy classes come from.  This function takes in a group, and returns a dictionary, the keys of which will be the conjugacy classes, and the value of each key is a list of the elements in the group that generate that conjugacy class.
+# Here we also define a function that not only will tell us what the conjugacy classes of a group are, but also which
+# elements of the group those conjugacy classes come from.  This function takes in a group, and returns a dictionary,
+# the keys of which will be the conjugacy classes, and the value of each key is a list of the elements in the group 
+# that generate that conjugacy class.
 
 # In[ ]:
 
@@ -114,7 +121,8 @@ def conjugacy_class_gens(group):
     return conjugacy_classes
 
 
-# We demostrate this with the following example.  We calculate all of the conjugacy classes of the group $A_4$.  Then print out information about which elements generate each conjugacy class.
+# We demostrate this with the following example.  We calculate all of the conjugacy classes of the group $A_4$. 
+# Then print out information about which elements generate each conjugacy class.
 
 # In[ ]:
 
