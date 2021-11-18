@@ -68,4 +68,4 @@ This series can be followed however the user wishes, but was designed to go in t
     7. [Autokey Cipher](Cryptography/AutoKeyCipher.ipynb)
 4. [More Groups](Groups)
     1. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
-    
+    2. [Conjugacy Classes](Groups/Conjugacy-classes.ipynb)
