@@ -66,6 +66,7 @@ This series can be followed however the user wishes, but was designed to go in t
     5. [Coding Theory](Cryptography/AlgebraicCoding.ipynb)
     6. [Vigenere Cipher](Cryptography/VigenereCipher.ipynb) (optional)
     7. [Autokey Cipher](Cryptography/AutoKeyCipher.ipynb) (optional)
+    8. [Knapsack Cryptosystem](Cryptography/Knapsack.ipynb) (optional)
 4. [More Groups](Groups)
     1. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
     2. [Conjugacy Classes](Groups/Conjugacy-classes.ipynb)
