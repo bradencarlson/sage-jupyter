@@ -3,8 +3,9 @@
 ## Sage Cell
 
 If no local installation of SageMath or Jupyter Notebooks are available, each of these files may be copied and pasted in the 
-[Sage Cell](https://sagecell.sagemath.org/) webpage, and ran there online.  This is a good alternative for people who have encountered troubles installing SageMath 
-onto their machines.  
+[Sage Cell](https://sagecell.sagemath.org/) webpage, and ran there online.  To use these files on [CoCalc](https://cocalc.com/), open a project, and select `new`, 
+then select `Sage worksheet`, and paste this code into the editor to be run.  This is a good alternative for people who have encountered troubles installing 
+SageMath or Jupyter Notebooks onto their machines.  
 
 ## Sage and the Command Prompt
 
