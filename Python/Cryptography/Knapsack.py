@@ -3,13 +3,19 @@
 
 # # Knapsack Cryptosystem
 
-# Here we implement the Knapsack Cryptosystem.  The way this is done is by selecting a random super increasing sequence, $a_1,a_2,\dots,a_n$, then selecting a modulus $m>2a_n$, as well as a multiplier $a$ with $\gcd(a,m)=1$.  Next we compute $c=a^{-1}\:\:\text{mod $m$}$.  We then compute the sequence $\{b_i\}_1^n$ as follows
+# Here we implement the Knapsack Cryptosystem.  The way this is done is by selecting a random super increasing 
+# sequence, $a_1,a_2,\dots,a_n$, then selecting a modulus $m>2a_n$, as well as a multiplier $a$ with $\gcd(a,m)=1$. 
+# Next we compute $c=a^{-1}\:\:\text{mod $m$}$.  We then compute the sequence $\{b_i\}_1^n$ as follows
 # $$ b_i=aa_i \:\:\text{mod $m$} $$
-# The sequence $\{b_n\}$ is then made public, while $\{a_n\},a,c,$ and $m$ are all kept private.  To encode a message, one takes some message, say "help!", and this is converted into binary according to some scheme, in this document, we use 8 bits to encode each letter.  So this message would be encoded to
+# The sequence $\{b_n\}$ is then made public, while $\{a_n\},a,c,$ and $m$ are all kept private.  To encode a message,
+# one takes some message, say "help!", and this is converted into binary according to some scheme, in this document, we 
+# use 8 bits to encode each letter.  So this message would be encoded to
 # $$ 01101000- 01100101- 01101100- 01110000- 10101100 $$
-# Call this sequence $\{x_i\}$.  Then this would be broken up into blocks of length $n$, and for each block, the sender would compute
+# Call this sequence $\{x_i\}$.  Then this would be broken up into blocks of length $n$, and for each block, the sender
+# would compute
 # $$ S = b_1x_1+b_2x_2+\cdots+b_nx_n $$
-# repeating the sequence for each block, and would send the message $S$ over some insucure line.  Then the reciever, who knows $a,c,m,$ and $\{a_n\}$, can compute
+# repeating the sequence for each block, and would send the message $S$ over some insucure line.  Then the reciever, 
+# who knows $a,c,m,$ and $\{a_n\}$, can compute
 # $$ S' \equiv cS \:\:\text{mod $m$} $$
 # which is to say
 # $$ S' \equiv cb_1x_1+cb_2x_2+\cdots+cb_nx_n \:\:\text{mod $m$}$$
@@ -21,7 +27,9 @@
 # $$ S' = a_1x_2+a_2x_2+\cdots+a_nx_n $$
 # Which can easily be solved, since $\{a_n\}$ is super increasing. Thus returning the original message $\{x_n\}$
 
-# Here we define the `create_sequence()` function.  It is used by passing in a positive integer, and the function will generate a superincreasing sequence of that length.  This function will return that superincreasing sequence, as well as some number that is at least two times as big as the last term of the sequence.
+# Here we define the `create_sequence()` function.  It is used by passing in a positive integer, and the function will
+# generate a superincreasing sequence of that length.  This function will return that superincreasing sequence, as well 
+# as some number that is at least two times as big as the last term of the sequence.
 
 # In[ ]:
 
@@ -93,8 +101,11 @@ def create_public_sequence(seq: list, a: int, m: int):
     return tuple(public_sequence)
 
 
-# Here we define the `pad_message()` and `depad_message()` functions.  These are not meant to be used by the user, but are called by the encrypt and decrypt functions, respectively.  Like I mentioned earlier, to encode each letter in the plaintext message, we use 8 bits of binary.  Do not change these functions.
-# (Also disregard the fact that the letter *H* was missed when I typed this up the first time, and in laziness, it was just assigned the next number 188)
+# Here we define the `pad_message()` and `depad_message()` functions.  These are not meant to be used by the user,
+# but are called by the encrypt and decrypt functions, respectively.  Like I mentioned earlier, to encode each 
+# letter in the plaintext message, we use 8 bits of binary.  Do not change these functions.
+# (Also disregard the fact that the letter *H* was missed when I typed this up the first time, and in laziness,
+# it was just assigned the next number 188)
 
 # In[ ]:
 
@@ -298,7 +309,10 @@ def depad_message(ciphertext: str):
     return plaintext
 
 
-# Here we define the `knapsack_solve()` function, which takes in a superincreasing sequence, as well as a number, and solves the knapsack problem.  Diclaimer: **This function does not check to make sure the sequence is superincreasing, nor does it check to ensure that the knapsack problem has a solution, it just goes through the algorithm as if these conditions are true.** 
+# Here we define the `knapsack_solve()` function, which takes in a superincreasing sequence, as well as a 
+# number, and solves the knapsack problem.  Diclaimer: **This function does not check to make sure the 
+# sequence is superincreasing, nor does it check to ensure that the knapsack problem has a solution, it just
+# goes through the algorithm as if these conditions are true.** 
 
 # In[ ]:
 
@@ -380,7 +394,11 @@ def knapsackDecrypt(ciphertext: list, seq: list, c: int, m: int):
     return depad_message(plain)
 
 
-# Here we go through one example.  We define a private superincreasing sequence, as well as a private modulus with the function `create_sequence()`.  We use a sequence of length 15.  Then we generate a private pair of multipliers $a$ and $c$.  Then with our private sequence, and multipliers, we create a public sequence, using the function `create_public_sequence()`.  We then define a message and encrypt it, as well as decrypt it, and print both the encrypted message, as well as the decrypted message to the screen.
+# Here we go through one example.  We define a private superincreasing sequence, as well as a private modulus 
+# with the function `create_sequence()`.  We use a sequence of length 15.  Then we generate a private pair of 
+# multipliers $a$ and $c$.  Then with our private sequence, and multipliers, we create a public sequence, using 
+# the function `create_public_sequence()`.  We then define a message and encrypt it, as well as decrypt it, and
+# print both the encrypted message, as well as the decrypted message to the screen.
 
 # In[ ]:
 
