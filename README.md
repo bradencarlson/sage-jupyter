@@ -14,7 +14,14 @@ Encryption system, as well as Algebraic Coding theory.
 
 This Project may be used with no local installation of SageMath or Jupyter Notebooks.  If one does not have access to these resources, 
 all code used in this Project may be executed on the [Sage Cell](https://sagecell.sagemath.org/) webpage.  To do this, please visit the [Python](Python) folder, 
-and copy the code that needs to be run. This code should then be pasted into the cell at the webpage above and can then be executed.   
+and copy the code that needs to be run. This code should then be pasted into the cell at the webpage above and can then be executed.  
+
+In Addition to SageCell, which gives a feel for what it would be like to run this code from a terminal, an online alternative to Jupyter Notebooks is also 
+available.  [CoCalc](https://cocalc.com/) is a great resource that may be used as an alternative to Jupyter Notebooks.  This will allow the user to view the 
+documents used in this Project just as they were designed to be seen in Jupyter Notebooks.  To use this resource, download the code 
+that needs to be run, (either the python code or the original `.ipynb` files, note that the latter will give prettier output), create an account with CoCalc, 
+create a new project, and upload the file that needs to be executed.  **CoCalc is a free service, but there is a
+[disclaimer](https://doc.cocalc.com/trial.html) that should be noted.**
 
 ## How to Help
 
