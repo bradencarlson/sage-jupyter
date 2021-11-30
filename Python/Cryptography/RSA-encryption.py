@@ -3,12 +3,7 @@
 
 # # RSA Encryption
 
-# In this document, we talk about the neccessary tools to perform RSA encryption.  Below we have the functions 
-# PadMessage and DepadMessage, we are thoroughly commented if you wish to read over how these functions work.  
-# What these functions do is turn our String message into a list of numbers, each of which is no bigger than our 
-# pulic modulus.  Once again, If you have not done so, I would highly recommend watching Dr. Misseldine's 
-# [RSA Encryption](https://www.youtube.com/watch?v=LcKquwXkhzU&list=PLz7t89zv8Lp2D6xQOG7kUEbN1KP5u-mpH&index=79) 
-# video, he explains the math behind RSA encryption, and this code was adapted from his program written in MAGMA.  
+# In this document, we talk about the neccessary tools to perform RSA encryption.  Below we have the functions PadMessage and DepadMessage, we are thoroughly commented if you wish to read over how these functions work.  What these functions do is turn our String message into a list of numbers, each of which is no bigger than our pulic modulus.  Once again, If you have not done so, I would highly recommend watching Dr. Misseldine's [RSA Encryption](https://www.youtube.com/watch?v=LcKquwXkhzU&list=PLz7t89zv8Lp2D6xQOG7kUEbN1KP5u-mpH&index=79) video, he explains the math behind RSA encryption, and this code was adapted from his program written in MAGMA.  
 
 # In[ ]:
 
@@ -237,8 +232,7 @@ def DepadMessage(digits):
     return plaintext
 
 
-# Here is where the magic happens, we define the ExpRSA function, as well as the EncryptRSA and DecryptRSA 
-# functions that we will use to encrypt and decrypt messages using the RSA cryptosystem.  The code is commented below.  
+# Here is where the magic happens, we define the ExpRSA function, as well as the EncryptRSA and DecryptRSA functions that we will use to encrypt and decrypt messages using the RSA cryptosystem.  The code is commented below.  
 
 # In[ ]:
 
@@ -264,10 +258,7 @@ def DecryptRSA(ciphertext, d, N):
     return DepadMessage(ExpRSA(ciphertext, d, N))
 
 
-# Here we go through our first example.  The encryption and decryption keys here were taken from Judson's
-# [Abstract Algebra: Theory and Applications](http://abstract.ups.edu/sage-aata.html).  In the example below, 
-# `n` is the modulus, and `e` and `d` are the encryption and decryption keys, respectfully.  The message is a 
-# passage from Alexandre Dumas' *The Counte of Monte Cristo*.
+# Here we go through our first example.  The encryption and decryption keys here were taken from Judson's [Abstract Algebra: Theory and Applications](http://abstract.ups.edu/sage-aata.html).  In the example below, `n` is the modulus, and `e` and `d` are the encryption and decryption keys, respectfully.  The message is a passage from Alexandre Dumas' *The Counte of Monte Cristo*.
 
 # In[ ]:
 
@@ -285,9 +276,9 @@ print(encrypted)
 print(decrypted)
 
 
-# Here we go over a more sophisticated example.  We define two random primes to be used in the encryption scheme, 
-# then we calculate $n=pq$, as well as $\phi(n)=(p-1)(q-1)$, then using the `inverse_mod()` function, we calculate
-# the decryption key based on the public encrypting exponent 29.  
+# Here we go over a more sophisticated example.  We define two random primes to be used in the encryption scheme, then we calculate $n=pq$, as well as $\phi(n)=(p-1)(q-1)$, then using the `inverse_mod()` function, we calculate the decryption key based on the public encrypting exponent 29.  
+# 
+# Note that if this code to actually be used for encryption, we would not want to select random primes each run, but rather pick random primes then save them to some private file, as well as the decryption key, so that any incoming messages can be properly decrypted and read.  
 
 # In[ ]:
 
@@ -307,20 +298,31 @@ print(f"q: {q}\n")
 # calculate phi(n), this must be kept secret
 phi_n = (p-1)*(q-1)
 
-# if phi(n) happens to be a multiple of 29, then select e to be 31
-# otherwise, choose e=29
-if phi_n % 29 == 0:
-    e = 31
-else:
-    e = 29
+# let e, our encryption key, be some random prime under 1000, 
+# if gcd(phi_n,29)=1, then 
+# select a new value for e, do this until we find a good
+# value for e.
+e = random_prime(2,1000,True)
+while gcd(e,phi_n)!=1:
+    e = random_prime(1000,10^30,True)
+    
+
+# print out the public key information
+print("Public Keys: e and n can be made public:")
+print(f"e: {e}")
+print(f"n: {n}\n")
 
 # calculate the inverse of e mod phi(n)
 d = inverse_mod(e,phi_n)
 
+
+# print out information about the private key
+print("Private decryption key: d must be kept secret:")
+print(f"d: {d}\n")
 # define our message and encrypt it using the scheme that we have created.
 message = "What wisdom is there that is greater than kindness? - Jean-Jacques Rousseau"
 encrypted = EncryptRSA(message,e,n)
-print(f"encrypted message: {encrypted}")
+print(f"encrypted message: {encrypted}\n")
 
 
 # decrypt the encrypted message to see the original message.
