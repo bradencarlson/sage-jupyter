@@ -78,3 +78,10 @@ This series can be followed however the user wishes, but was designed to go in t
 4. [More Groups](Groups)
     1. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
     2. [Conjugacy Classes](Groups/Conjugacy-classes.ipynb)
+
+## Miscellaneous Files
+
+In the Misc folder, we discuss selected topics that do not neccessarily have to do with the Abstract Algebra course taught by Dr. Andrew Misseldine at Southern 
+Utah University.  In this folder we currently have files that dicuss:
+
+- [SageMath and Latex](Misc/sage-latex.ipynb)
