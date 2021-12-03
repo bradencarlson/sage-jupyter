@@ -85,3 +85,4 @@ In the Misc folder, we discuss selected topics that do not neccessarily have to 
 Utah University.  In this folder we currently have files that dicuss:
 
 - [SageMath and Latex](Misc/sage-latex.ipynb)
+- [Euclidean Algorithm](Misc/Euclid.ipynb)
