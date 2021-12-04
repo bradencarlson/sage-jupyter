@@ -1,9 +1,14 @@
-<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-red.svg" ></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/bradencarlson/sage-jupyter" ></a>
+<img src="https://img.shields.io/github/issues-raw/bradencarlson/sage-jupyter"></a>
+<img src="https://img.shields.io/github/issues-closed-raw/bradencarlson/sage-jupyter"></a>
+<img src="https://img.shields.io/github/last-commit/bradencarlson/sage-jupyter"></a>
+<img src="https://img.shields.io/github/repo-size/bradencarlson/sage-jupyter"></a>
+
 
 # Project Sage-Jupyter
 SageMath files (via Jupyter Notebooks) that give an introduction to using SageMath to explore selected topics in Abstract Algebra.
 
-Originally created as a project for Math 4220 at Southen Utah University, this Project will guide the user through installing SageMath and Jupyter Notebooks.  The 
+Originally created as a project for Math 4220 at Southern Utah University, this Project will guide the user through installing SageMath and Jupyter Notebooks.  The 
 user will then be introduced to basic computations in SageMath, as well as experimenting with group theory.  SageMath provides a rich environment for visualizing 
 and experimenting with groups, including functionality with subgroups, cayley tables, isomorphisms, and more.
 
