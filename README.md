@@ -86,3 +86,4 @@ Utah University.  In this folder we currently have files that dicuss:
 
 - [SageMath and Latex](Misc/sage-latex.ipynb)
 - [Euclidean Algorithm](Misc/Euclid.ipynb)
+- [Repeated Squares](Misc/repeated-squares.ipynb)
