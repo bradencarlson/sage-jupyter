@@ -1,3 +1,5 @@
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-red.svg" ></a>
+
 # Project Sage-Jupyter
 SageMath files (via Jupyter Notebooks) that give an introduction to using SageMath to explore selected topics in Abstract Algebra.
 
