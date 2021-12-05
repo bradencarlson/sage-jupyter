@@ -93,5 +93,5 @@ In the Misc folder, we discuss selected topics that do not neccessarily have to 
 Utah University.  In this folder we currently have files that dicuss:
 
 - [SageMath and Latex](Misc/sage-latex.ipynb)
-- [Euclidean Algorithm](Misc/Euclid.ipynb)
-- [Repeated Squares](Misc/repeated-squares.ipynb)
+- How to write a program for the [Euclidean Algorithm](Misc/Euclid.ipynb)
+- How to write a program for the [Repeated Squares](Misc/repeated-squares.ipynb) algorithm
