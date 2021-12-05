@@ -85,6 +85,7 @@ This series can be followed however the user wishes, but was designed to go in t
 4. [More Groups](Groups)
     1. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
     2. [Conjugacy Classes](Groups/Conjugacy-classes.ipynb)
+    3. [Matrix Groups](Groups/matrix-groups.ipynb)
 
 ## Miscellaneous Files
 
