@@ -32,4 +32,4 @@ run without runtime errors.
 Files listed here that do have intentional errors:
 
 * [Basic Introduction](Introduction/basic-introduction.py)
-* [Frequency Analysis](Cryptography/FrequencyAnalysis.py) (This file tries to access the words.txt file, which is not available in SageCell.
+* [Frequency Analysis](Cryptography/FrequencyAnalysis.py) (This file tries to access the words.txt file, which is not available in SageCell.)
