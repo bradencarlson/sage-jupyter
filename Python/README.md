@@ -5,7 +5,7 @@
 If no local installation of SageMath or Jupyter Notebooks are available, each of these files may be copied and pasted in the 
 [Sage Cell](https://sagecell.sagemath.org/) webpage, and ran there online.  To use these files on [CoCalc](https://cocalc.com/), open a project, and select `new`, 
 then select `Sage worksheet`, and paste this code into the editor to be run.  This is a good alternative for people who have encountered troubles installing 
-SageMath or Jupyter Notebooks onto their machines.  
+SageMath or Jupyter Notebooks onto their machines.  **See the note below about errors.**
 
 ## Sage and the Command Prompt
 
@@ -22,6 +22,8 @@ terminal (typing `sage` in linux, selecting the SageMath icon in Windows), and n
 navegated to the correct directory, I can run the Python file with SageMath by typing the command `load('AlgebraicCoding.py')` to run the file containing the 
 information about algebraic coding theory.
 
+## Errors
+
 Also note that in some of the documents that have been prepared and uploaded as part of this project, there are intentional mistakes in the code to 
 demonstrate to the the user how SageMath reports these errors.  When downloading these files as python files, even while running them as a SageMath document,
 once the error is encountered, execution of the file will stop.  For the majority of the documents in this project this will not be a problem, as they all
@@ -30,3 +32,4 @@ run without runtime errors.
 Files listed here that do have intentional errors:
 
 * [Basic Introduction](Introduction/basic-introduction.py)
+* [Frequency Analysis](Cryptography/frequency-analysis.py) (This file tries to access the words.txt file, which is not available in SageCell.
