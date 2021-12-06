@@ -29,7 +29,7 @@ demonstrate to the the user how SageMath reports these errors.  When downloading
 once the error is encountered, execution of the file will stop.  For the majority of the documents in this project this will not be a problem, as they all
 run without runtime errors.  
 
-Files listed here that do have intentional errors:
+Files listed here that do have errors:
 
 * [Basic Introduction](Introduction/basic-introduction.py)
 * [Frequency Analysis](Cryptography/FrequencyAnalysis.py) (This file tries to access the words.txt file, which is not available in SageCell.)
