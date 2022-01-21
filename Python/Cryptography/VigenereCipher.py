@@ -3,13 +3,7 @@
 
 # # Vigenere Cipher
 
-# Here we will take a look at the Vigenere Cipher.  This cipher is performed by first choosing a secret code word.  
-# The code word is known by both the sending party and the recieving party.  The plaintext and the code word are 
-# then both encoded according to some scheme.  We then take the encoded message, and we add the first number of the 
-# codeword to the first number of the plaintext, the second number of the codeword to the second letter of the 
-# plaintext, and so on until we reach the end of the message, repeating the codeword as many times that is necessary. 
-# Let the secret code word be CAT, and let our encoding scheme be $A\rightarrow 00$, $B\rightarrow 01$, $\dots$, 
-# $Z\rightarrow 25$. 
+# Here we will take a look at the Vigenere Cipher.  This cipher is performed by first choosing a secret code word.  The code word is known by both the sending party and the recieving party.  The plaintext and the code word are then both encoded according to some scheme.  We then take the encoded message, and we add the first number of the codeword to the first number of the plaintext, the second number of the codeword to the second letter of the plaintext, and so on until we reach the end of the message, repeating the codeword as many times that is necessary.  Let the secret code word be CAT, and let our encoding scheme be $A\rightarrow 00$, $B\rightarrow 01$, $\dots$, $Z\rightarrow 25$. 
 # 
 # $$ \begin{array}{ccccccc}
 #   & A & T & T & A & C & K \\
@@ -26,8 +20,11 @@
 # In[ ]:
 
 
+# this takes a string and converts it into numbers
 def digitize(string):
+    # create a new array to contains the digitized string
     cipher_text = []
+    # for each element of the string, append its corresponding digit to the cipher_text[] array
     for i in string:
         if i == 'A' or i == 'a': cipher_text.append(0)
         if i == 'B' or i == 'b': cipher_text.append(1)
@@ -57,6 +54,8 @@ def digitize(string):
         if i == 'Z' or i == 'z': cipher_text.append(25)
     return cipher_text
         
+# takes a digitized array, and turns it back into the plain text, just as the 
+# method above does
 def alphabetize(digits):
     plain_text = ""
     for i in digits:
@@ -89,26 +88,35 @@ def alphabetize(digits):
     return plain_text
        
     
+# here we define the VignereEncrypt and Decrypt method. 
 def VigenereEncrypt(plaintext: str, codeword: str):
+    # take in the plaintext string and the keyword,
+    # create the digitized array
     ciphertext = digitize(plaintext)
+    # create the digitized codeword
     code = digitize(codeword)
+    # go through the digitized plaintext and encipher it 
     for i in range(0,len(ciphertext)):
         position = i % len(code)
         ciphertext[i] = (ciphertext[i] + code[position]) % 26
+    # return the ciphertext
     return alphabetize(ciphertext)
 
+# do the reverse
 def VigenereDecrypt(ciphertext: str, codeword: str):
+    # digitize the cipher text
     plaintext = digitize(ciphertext)
+    # and the codeword
     code = digitize(codeword)
+    # then go through and decode the ciphertext
     for i in range(0,len(plaintext)):
         position = i % len(code)
         plaintext[i] = (plaintext[i] - code[position]) % 26
+    # return the plaintext string.
     return alphabetize(plaintext)
 
 
-# Here we have an example of this code in use.  We use the same message as the example above, as well as the 
-# same code word.  We call the `VigenereEncrypt()` method to encrypt the word ATTACK, then we demostrate the 
-# `VigenereDecrypt()` function to decrypt the message CTMCCD.
+# Here we have an example of this code in use.  We use the same message as the example above, as well as the same code word.  We call the `VigenereEncrypt()` method to encrypt the word ATTACK, then we demostrate the `VigenereDecrypt()` function to decrypt the message CTMCCD.
 
 # In[ ]:
 
