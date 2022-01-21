@@ -95,3 +95,5 @@ Utah University.  In this folder we currently have files that dicuss:
 - [SageMath and Latex](Misc/sage-latex.ipynb)
 - How to write a program for the [Euclidean Algorithm](Misc/Euclid.ipynb)
 - How to write a program for the [Repeated Squares](Misc/repeated-squares.ipynb) algorithm
+
+We also have a few files written in `c` that implement some of the algorithms found in this project.
