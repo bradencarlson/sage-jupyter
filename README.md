@@ -55,6 +55,24 @@ statements, functions and classes, and more. All of the documents here in this P
 language works, although most code is either commented or coupled with notes to inform the user of what the code is trying to accomplish.  Thus, any student of 
 SageMath will find this Project helpful in their journey to using SageMath. 
 
+## Package
+
+This project can now be found in a package! Please keep in mind that this package is still a work in progress, and is not fully functional at the moment.  
+Also note that this package, while found on [PyPi](https://pypi.org/project/sage-aata/), is made to be used with SageMath, and not Python.  This package can be 
+installed with the following command:
+
+```
+python3 -m pip install sage-aata
+```
+
+And updated with the command 
+
+```
+python3 -m pip install --upgrade sage-aata
+```
+
+
+
 ## Series
 
 This series can be followed however the user wishes, but was designed to go in the following order:
