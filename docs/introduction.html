@@ -1,0 +1,99 @@
+
+
+<head>
+  <title>Introduction</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+  <script>sagecell.makeSagecell({"inputLocation": "div.sage",
+                                 "editor": "codemirror",
+                                 "linked": true });</script>
+</head>
+
+<body>
+  <div class="panel">
+    <a class="title" href="index.html">Project Sage-Jupyter</a>
+    <div class="menu-item-container">
+      <a class="menu-item" href="index.html">Home</a>
+      <a class="menu-item" href="https://github.com/bradencarlson/sage-jupyter/">Github</a>
+      <a class="menu-item" href="https://pypi.org/project/sage-aata/">PyPi</a>
+    </div>
+  </div>
+  <div class="panel-decor">Introduction</div>
+
+  <div class="main-content">
+    <h2>Introduction</h2>
+    <p>Here we go over a brief inroduction to SageMath, and its syntax, to provide
+    us with the tools that we need to study some Abstract Algebra. Let's take
+    a look at the following cell.  We can easily define variables, perform various
+    operations on them, and have them printed out to the screen.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+x = 103454
+y = 34865
+print(f"The sum of {x} and {y} is {x+y}")
+print(f"x/y = {x/y}")
+print(f"x mod y = {x%y}")
+print(f"The quotient when x is divided by y is {x//y}")
+print(2^8)
+
+x = 10^500
+print(x/6.745)
+      </script>
+    </div>
+    <p>Also note the optional use of f-strings.  This is a feture inherited from
+    Python, when a string is preceeded by an f, then any variable that appears
+    in backets will have it's value printed, rather than the variable name.</p>
+
+    <p>We can also combine variables to form other variables in SageMath.  This will
+    be very useful as we explore more complicated examples throughout this
+    series.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+x = 5.67
+y = 3.45423
+z = 9.3861
+
+total = x + y + z
+average = total/3
+
+print(f"The average of these three numbers is {average}")
+
+      </script>
+    </div>
+
+    <p>We will also need to know a little about types of data.  There are many
+    different types of data that we can define, and we have already seen a few!
+    consider the following cell.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+x = 56
+y = "hello"
+print(f"The type of x is {type(x)} and the type of y is {type(y)}")
+
+
+      </script>
+    </div>
+
+    <p>We see that not only do x and y have different values, but they are of
+    different types. One is an integer, the other a string.  Sage will tell
+    us if something is wrong with our code, let's see an example.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+x+y
+      </script>
+    </div>
+
+    <p>We should see an error appear, telling us that we can't add these two different
+    types of data together.
+
+
+
+
+  </div>
+
+
+</body>

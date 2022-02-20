@@ -1,0 +1,171 @@
+
+:root {
+  --panelBackground: #46494c;  /* the background color of the panel */
+  --panelTextColor: #c5c3c6; /* the text color of all menu items in the panel */
+  --panelTextColorHover: #1985a1; /* the text color of menu items in the panel
+  when hovered over */
+  --titleColor: #1985a1; /* the color of tites in the main page, includes the title
+  in the panel */
+  --mainBackground: #dcdcdd; /* background color of the main document */
+  --linkColor: #4c594c;  /* color of all links in the side menu */
+  --linkColorHover: #1985a1; /* color of all links in the side menu when hovered
+  over */
+}
+
+body {
+  background-color: var(--mainBackground);
+}
+/* normal sage cell for execution */
+.sage {
+  width: 80%;
+  height: auto;
+  margin-left: 10%;
+}
+
+/* title class */
+a.title {
+  font-size: 35px;
+  font-family: sans-serif;
+
+  padding-left: 3%;
+  color: var(--panelTextColor);
+  text-decoration: none;
+}
+a.title:hover {
+  color: var(--panelTextColor);
+}
+
+/* the panel at the top of the page */
+.panel {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 45px;
+  background-color: var(--panelBackground);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding-top: 20px;
+
+  z-index: 1000;
+}
+
+/* panel decoration underneath the panel on page */
+.panel-decor {
+  width: 100%;
+  min-height: 8px;
+  background-color: var(--linkColorHover);
+  position: fixed;
+  top: 65px;
+  left: 0px;
+  font-size: 20px;
+  color: white;
+  padding-left: 3%;
+  z-index: 1000;
+}
+
+/* menu item container for the panel */
+.menu-item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 3%;
+  align-items: center;
+}
+
+/* menu items */
+.menu-item {
+  padding-left: 20px;
+}
+/* links under the class menu-item in the menu-item-container */
+.menu-item-container a.menu-item {
+  color: var(--panelTextColor);
+  text-decoration: none;
+}
+
+/* same but under hover */
+.menu-item-container a.menu-item:hover {
+  color: var(--panelTextColorHover);
+}
+
+/* the main content of the page  */
+.main-content-two {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 100px;
+  padding-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+/* the main content of other pages, with no columns */
+.main-content {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 100px;
+  padding-top: 20px;
+}
+
+/* article - for the main information */
+.article-twocolumn {
+  width: 65%;
+
+}
+
+.article-twocolumn a {
+  text-decoration: none;
+  color: var(--linkColor);
+}
+.article-twocolumn a:hover {
+  color: var(--linkColorHover);
+}
+
+/* the subtitle class */
+h2 {
+  color: var(--titleColor);
+}
+
+/* side menu area */
+.side-menu {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  bolor-color: var(--panelBackground);
+}
+
+/* items in the side menu */
+.side-menu-item {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* side-menu-items that are links */
+.side-menu a.side-menu-item {
+  text-decoration: none;
+  color: var(--linkColor);
+}
+/* same but under hover */
+.side-menu a.side-menu-item:hover {
+  color: var(--linkColorHover);
+}
+
+/* footer information */
+.footer {
+  width: 100%;
+  height: 50px;
+  bottom: 0px;
+}
