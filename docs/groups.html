@@ -20,5 +20,66 @@
   </div>
   <div class="panel-decor">Groups</div>
 
+  <div class="main-content">
+    <h2>Groups</h2>
+    <p>Here we dive into groups in SageMath.  There are many different types of
+    groups that are predefined in SageMath for us to use including:
+    <ul>
+      <li>Symmetric Groups</li>
+      <li>Dihedral Groups</li>
+      <li>Alternating Groups</li>
+      <li>The Klein Four Grouop</li>
+      <li>The Quaternion Group</li>
+      <li>Many others</li>
+    </ul>
+    <p>Lets go over a few examples</p>
+
+    <div class="sage">
+      <script>
+# define a dihedral group on three elements
+T = DihedralGroup(3)
+
+
+print("Here we list all the elements of the group T: D3")
+print(T.list())
+
+
+# define two elements of D3
+sigma = T('(1,3,2)')
+tau = T('(2,3)')
+
+print("These are the results of the calculations sigma*tau, tau*sigma, sigma^3, and tau^(-1)")
+print(sigma*tau)
+print(tau*sigma)
+print(sigma^3)
+print(tau^(-1),"\n")
+
+
+
+
+S5 = SymmetricGroup(5)
+print(f"The order of S5 is {S5.order()}")
+print(f"Is S5 abelian? {S5.is_abelian()}")
+
+
+
+print("Here we print out the cayley table for T")
+print(T.cayley_table())
+# be aware that for most groups this will be quite large.
+
+
+print("This is the cayley graph for T")
+T.cayley_graph()
+
+
+# The other types of groups are declared by using the following syntax:
+#
+# * A = AlternatingGroup(n)
+# * Q = QuaternionGroup()
+# * K = KleinFourGroup()
+      </script>
+    </div>
+  </div>
+
 
 </body>

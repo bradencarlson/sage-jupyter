@@ -19,5 +19,36 @@
   </div>
   <div class="panel-decor">Modular Arithmetic</div>
 
+  <div class="main-content">
+    <h2>Modular Arithmetic</h2>
+    <p>Here we explore some basic calculations with modular arithmetic in SageMath,
+    the reader should be familiar with all of the operations being performed here,
+    although the syntax might be new.</p>
+
+    <div class="sage">
+      <script>
+# Define the ring of integers mod n
+R = IntegerModRing(12)
+a = R(11)
+b = R(10)
+print(a+b)
+print(a*b)
+
+# note that if we do not specify that a and b
+# are supposed to belong to the integers mod n
+# then we don't get modular arithmetic
+a = 5
+b = 7
+print(a+b)
+print(a*b)
+
+# there are also some very important and useful
+# functions that we will use in the future
+print(inverse_mod(12,13))
+print(power_mod(5,6,12))
+      </script>
+    </div>
+  </div>
+
 
 </body>

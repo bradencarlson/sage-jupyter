@@ -19,5 +19,81 @@
   </div>
   <div class="panel-decor">Cosets</div>
 
+  <div class="main-content">
+    <h2>Cosets</h2>
+    <p>In this cell, we define some fuctions that will be usefull to us while
+    studying cosets of elements in groups.  Run This cell before running others
+    to ensure that all functions are defined.
+    <div class="sage">
+      <script type="text/x-sage">
+def left_coset(H, g):
+    H_elements = H.list()
+    coset = set(())
+    for element in H.list():
+        coset.add(element*g)
+
+    return sorted(coset)
+
+def right_coset(H, g):
+    H_elements  = H.list()
+    coset = set(())
+    for element in H_elements:
+        coset.add(g*element)
+
+    return sorted(coset)
+
+    def coset_generators(H, G):
+        cosets  = {}
+        for element in G.list():
+
+            left_coset = set(())
+            right_coset = set(())
+            for item in H.list():
+                right_coset.add(element*item)
+                left_coset.add(item*element)
+
+            right_coset = sorted(right_coset)
+            left_coset = sorted(left_coset)
+
+
+            if str(left_coset) not in cosets.keys() and str(right_coset) not in cosets.keys():
+                cosets[str(left_coset)] = [str(element)+"H"]
+                cosets[str(right_coset)] = ["H"+str(element)]
+            if str(right_coset) in cosets.keys() and str("H"+str(element)) not in cosets[str(right_coset)]:
+                cosets[str(right_coset)].append("H"+str(element))
+                pass
+            if str(left_coset) in cosets.keys() and str(str(element)+"H") not in cosets[str(left_coset)]:
+                cosets[str(left_coset)].append(str(element)+"H")
+        return cosets
+
+      </script>
+    </div>
+
+    <h2>Examples</h2>
+    <p>Here we go through some examples of how to use these functions defined
+    above. </p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+S4 = SymmetricGroup(4)
+
+# define the subgroup H
+H = S4.subgroup(['(3,4)','(1,2)'])
+
+# print out the original subgroup
+print(H.list())
+
+# select an element from S4
+sigma = S4('(2,3)')
+
+# calculate the left coset of H with representative sigma
+coset = left_coset(H,sigma)
+
+# print out the coset
+print(coset)
+      </script>
+    </div>
+  </div>
+
 
 </body>

@@ -295,7 +295,64 @@ print(encrypted)
 print(decrypted)
       </script>
     </div>
+
+    <h2>Example 2</h2>
+    <p>Here we go through a more complicated example, encrypting our message
+    with much larger primes.</p>
+
+    <div class="sage">
+      <script>
+
+# select two random primes to use for encryption.
+p = random_prime(10^75,10^85,True)
+q = random_prime(10^75,10^85,True)
+
+# calculate their product n
+n = p*q
+
+# print out some information about q and p
+print("p and q must be kept secret:")
+print(f"p: {p}")
+print(f"q: {q}\n")
+
+# calculate phi(n), this must be kept secret
+phi_n = (p-1)*(q-1)
+
+# let e, our encryption key, be some random prime under 1000,
+# if gcd(phi_n,29)=1, then
+# select a new value for e, do this until we find a good
+# value for e.
+e = random_prime(2,1000,True)
+while gcd(e,phi_n)!=1:
+    e = random_prime(1000,10^30,True)
+
+
+# print out the public key information
+print("Public Keys: e and n can be made public:")
+print(f"e: {e}")
+print(f"n: {n}\n")
+
+# calculate the inverse of e mod phi(n)
+d = inverse_mod(e,phi_n)
+
+
+# print out information about the private key
+print("Private decryption key: d must be kept secret:")
+print(f"d: {d}\n")
+# define our message and encrypt it using the scheme that we have created.
+message = "What wisdom is there that is greater than kindness? - Jean-Jacques Rousseau"
+encrypted = EncryptRSA(message,e,n)
+print(f"encrypted message: {encrypted}\n")
+
+
+# decrypt the encrypted message to see the original message.
+decrypted = DecryptRSA(encrypted,d,n)
+print(f"decrypted message: {decrypted}")
+      </script>
+    </div>
   </div>
+
+
 
 
 
