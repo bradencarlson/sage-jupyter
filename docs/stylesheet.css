@@ -14,9 +14,20 @@
   --logoColor: #F78B08; /* this is the logo color, THIS SHOULD NOT BE CHANGED */
 }
 
-body {
+html,body {
   background-color: var(--mainBackground);
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
 }
+body {
+  margin-top: 150px;
+}
+
 /* normal sage cell for execution */
 .sage {
   width: 80%;
@@ -105,8 +116,7 @@ a.title:hover {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 100px;
-  padding-top: 20px;
+
 
   display: flex;
   flex-direction: row;
@@ -119,8 +129,6 @@ a.title:hover {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 100px;
-  padding-top: 20px;
 }
 
 /* article - for the main information */
@@ -193,9 +201,60 @@ h2 {
 
 /* footer information */
 .footer {
-  background-color: var(--linkColorHover);
-  padding: 25px;
   width: 100%;
-  height: 50px;
-  bottom: 0px;
+  padding-top: 50px;
+  bottom: 0;
+  position: static;
+
+  color: var(--panelTextColor);
+}
+
+.footer-decor {
+  min-height: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+
+}
+
+.bottom-logo {
+  max-height: 15px;
+  padding-right: 10px;
+}
+
+.bottom-logo-decor {
+  min-height: 8px;
+  width: 20px;
+  background-color: var(--panelDecorColor);
+
+  padding-right: 3%;
+}
+
+.footer-content {
+  width: 100%;
+  min-height: 150px;
+  background-color: var(--panelBackground);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-content-block {
+  width: 250px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: var(--panelTextColor);
+}
+
+.footer-content-block a {
+  color: var(--panelTextColor);
+  text-decoration: none;
+}
+.footer-content-block a:hover {
+  color: var(--panelTextColorHover);
 }
