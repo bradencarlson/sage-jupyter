@@ -14,7 +14,7 @@
   --logoColor: #F78B08; /* this is the logo color, THIS SHOULD NOT BE CHANGED */
 }
 
-html,body {
+html, body {
   background-color: var(--mainBackground);
   height: 100%;
 
@@ -203,7 +203,7 @@ h2 {
 .footer {
   width: 100%;
   padding-top: 50px;
-  bottom: 0;
+
   position: static;
 
   color: var(--panelTextColor);
@@ -257,4 +257,26 @@ h2 {
 }
 .footer-content-block a:hover {
   color: var(--panelTextColorHover);
+}
+
+.footer-content-block-large {
+  color: var(--panelTextColor);
+  padding-left: 10%;
+  width: 80%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.footer-content-block-large a {
+  color: var(--panelTextColor);
+  text-decoration: none;
+}
+.footer-content-block-large a:hover {
+  color: var(--panelTextColorHover);
+}
+
+.author-info {
+  padding-left: 10%;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
