@@ -1,16 +1,16 @@
 
 :root {
-  --panelBackground: #46494c;  /* the background color of the panel */
+  --panelBackground: #082032;  /* was #46494c the background color of the panel */
   --panelTextColor: #c5c3c6; /* the text color of all menu items in the panel */
   --panelTextColorHover: #fff; /* the text color of menu items in the panel
   when hovered over */
-  --titleColor: #555; /* the color of titles in the main page, not the title
+  --titleColor: #082032; /* was #555, the color of titles in the main page, not the title
   in the panel */
-  --mainBackground: #dcdcdd; /* background color of the main document */
-  --linkColor: #4c594c;  /* color of all links in the side menu */
-  --linkColorHover: #8B08F7; /* color of all links in the side menu when hovered
+  --mainBackground: #fff; /* was #dbdbdd background color of the main document */
+  --linkColor: #4c594c;  /* was #4c594c, color of all links in the side menu */
+  --linkColorHover: #ff0000; /* was #8b08f7, color of all links in the side menu when hovered
   over */
-  --panelDecorColor: #8b08f7;
+  --panelDecorColor: #66f; /* was #8b08f7 */
   --logoColor: #F78B08; /* this is the logo color, THIS SHOULD NOT BE CHANGED */
 }
 
@@ -21,6 +21,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-size: 15pt;
 
 
 }
@@ -62,6 +63,7 @@ a.title:hover {
   top: 0px;
   left: 0px;
   height: 65px;
+
   background-color: var(--panelBackground);
 
   display: flex;
@@ -69,7 +71,7 @@ a.title:hover {
   justify-content: space-between;
 
   padding-top: 20px;
-
+  padding-bottom: 10px;
   z-index: 1000;
 }
 
@@ -79,7 +81,7 @@ a.title:hover {
   min-height: 8px;
   background-color: var(--panelDecorColor);
   position: fixed;
-  top: 85px;
+  top: 95px;
   left: 0px;
   font-size: 20px;
   color: white;
@@ -167,7 +169,7 @@ h2 {
   justify-content: flex-start;
   align-items: flex-end;
   padding: 5px;
-  border-style: solid;
+  border-style: none;
   border-left: none;
   border-top: none;
   border-bottom: none;
@@ -238,12 +240,12 @@ h2 {
   background-color: var(--panelBackground);
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .footer-content-block {
-  width: 250px;
+  width: auto;
   padding-left: 10%;
   padding-right: 10%;
   padding-top: 20px;
