@@ -105,6 +105,8 @@ This series can be followed however the user wishes, but was designed to go in t
     1. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
     2. [Conjugacy Classes](Groups/Conjugacy-classes.ipynb)
     3. [Matrix Groups](Groups/matrix-groups.ipynb)
+5. [Fields](Fields)
+    1. [Fields](Fields/Fields.ipynb)
 
 ## Miscellaneous Files
 
