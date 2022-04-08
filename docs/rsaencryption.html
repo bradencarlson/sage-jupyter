@@ -320,8 +320,7 @@ n = p*q
 
 # print out some information about q and p
 print("p and q must be kept secret:")
-print(f'p: {p}')
-print(f'q: {q}\n')
+
 
 # calculate phi(n), this must be kept secret
 phi_n = (p-1)*(q-1)
@@ -363,13 +362,24 @@ print(f"decrypted message: {decrypted}")
 
 
 
-
-
-
 </body>
 <script>
-  var element = document.getElementsByClassName("sagecell_fullScreen");
-  setTimeout(()=> { element[0].onclick = function(){console.log("first button clicked")}; } ,5000);
+  var buttons = document.getElementsByClassName("sagecell_fullScreen");
+  var divs = document.getElementsByTagName("div");
+  setTimeout(()=> { change_buttons() } ,5000);
+  function change_buttons() {
+    buttons[0].onclick = function(){
+
+      if (divs[0].style.zIndex!="-1") {
+        divs[0].style.zIndex = "-1";
+        divs[2].style.zIndex = "-1";
+      } else {
+        divs[0].style.zIndex = "1000";
+        divs[2].style.zIndex = "1000";
+      }
+
+    };
+  }
 </script>
 </head>
 
