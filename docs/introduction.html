@@ -114,4 +114,35 @@ x+y
 
 
 </body>
+<script>
+  var buttons = document.getElementsByClassName("sagecell_fullScreen");
+  var divs = document.getElementsByTagName("div");
+  var button_index = "10000";
+  setTimeout(()=> { change_buttons() } ,1000);
+  function change_buttons() {
+    for(let i = 0; i< buttons.length; i++) {
+      buttons[i].onclick = function(){
+
+        if (divs[0].style.zIndex!="-1") {
+          divs[0].style.zIndex = "-1";
+          divs[2].style.zIndex = "-1";
+        } else {
+          divs[0].style.zIndex = "10001";
+          divs[2].style.zIndex = "10001";
+        }
+        for(let j = 0; j< buttons.length; j++) {
+          if (j!=i) {
+            if (buttons[j].style.zIndex != "-5") {
+              buttons[j].style.zIndex = "-5";
+            } else {
+              buttons[j].style.zIndex = button_index;
+            }
+          }
+        }
+
+      };
+    }
+  }
+</script>
+
 </html>
