@@ -105,15 +105,17 @@ This series can be followed however the user wishes, but was designed to go in t
     1. [Isomorphisms and Direct Products](Groups/Isomorphisms-Direct-Products.ipynb)
     2. [Conjugacy Classes](Groups/Conjugacy-classes.ipynb)
     3. [Matrix Groups](Groups/matrix-groups.ipynb)
-5. [Group Rings](Group-Rings)
+5. [Rings](Rings)
+    1. [Rings](Rings/Rings.ipynb)
+6. [Group Rings](Group-Rings)
     1. [Group Rings](Group-Rings/GroupRings.ipynb)
 7. [Fields](Fields)
     1. [Fields](Fields/Fields.ipynb)
 
 ## Miscellaneous Files
 
-In the Misc folder, we discuss selected topics that do not neccessarily have to do with the Abstract Algebra course taught by Dr. Andrew Misseldine at Southern 
-Utah University.  In this folder we currently have files that dicuss:
+In the Misc folder, we discuss selected topics that do not neccessarily have to do with the Abstract Algebra course taught by Dr. Andrew Misseldine 
+at Southern Utah University.  In this folder we currently have files that dicuss:
 
 - [SageMath and Latex](Misc/sage-latex.ipynb)
 - How to write a program for the [Euclidean Algorithm](Misc/Euclid.ipynb)
