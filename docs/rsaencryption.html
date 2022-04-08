@@ -365,20 +365,36 @@ print(f"decrypted message: {decrypted}")
 </body>
 <script>
   var buttons = document.getElementsByClassName("sagecell_fullScreen");
+  for(let i = 0; i< buttons.length; i++) {
+    buttons[i].style.zIndex = "10000";
+  }
   var divs = document.getElementsByTagName("div");
+  var button_index = "10000";
+  //setTimeout(()=> {button_index = buttons[0].style.zIndex; },4000);
   setTimeout(()=> { change_buttons() } ,5000);
   function change_buttons() {
-    buttons[0].onclick = function(){
+    for(let i = 0; i< buttons.length; i++) {
+      buttons[i].onclick = function(){
 
-      if (divs[0].style.zIndex!="-1") {
-        divs[0].style.zIndex = "-1";
-        divs[2].style.zIndex = "-1";
-      } else {
-        divs[0].style.zIndex = "1000";
-        divs[2].style.zIndex = "1000";
-      }
+        if (divs[0].style.zIndex!="-1") {
+          divs[0].style.zIndex = "-1";
+          divs[2].style.zIndex = "-1";
+        } else {
+          divs[0].style.zIndex = "1000";
+          divs[2].style.zIndex = "1000";
+        }
+        for(let j = 0; j< buttons.length; j++) {
+          if (j!=i) {
+            if (buttons[j].style.zIndex == button_index) {
+              buttons[j].style.zIndex = "-5";
+            } else {
+              buttons[j].style.zIndex = button_index;
+            }
+          }
+        }
 
-    };
+      };
+    }
   }
 </script>
 </head>
