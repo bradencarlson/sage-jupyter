@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+
+<html>
+
+
 
 <head>
   <title>RSA Encryption</title>
@@ -6,7 +11,7 @@
   <script>sagecell.makeSagecell({"inputLocation": "div.sage",
                                  "editor": "codemirror",
                                  "linked": true });</script>
-</head>
+
 
 <body>
   <div class="panel">
@@ -276,7 +281,7 @@ def DecryptRSA(ciphertext, d, N):
     # first decrypt the message, then depad it into plaintext to read.
     return DepadMessage(ExpRSA(ciphertext, d, N))
 
-      </script>
+    </script>
     </div>
 
     <h2>Example 1</h2>
@@ -296,7 +301,7 @@ decrypted  = DecryptRSA(encrypted, 1997, n)
 
 print(encrypted)
 print(decrypted)
-      </script>
+    </script>
     </div>
 
     <h2>Example 2</h2>
@@ -315,8 +320,8 @@ n = p*q
 
 # print out some information about q and p
 print("p and q must be kept secret:")
-print(f"p: {p}")
-print(f"q: {q}\n")
+print(f'p: {p}')
+print(f'q: {q}\n')
 
 # calculate phi(n), this must be kept secret
 phi_n = (p-1)*(q-1)
@@ -359,4 +364,13 @@ print(f"decrypted message: {decrypted}")
 
 
 
+
+
 </body>
+<script>
+  var element = document.getElementsByClassName("sagecell_fullScreen");
+  setTimeout(()=> { element[0].onclick = function(){console.log("first button clicked")}; } ,5000);
+</script>
+</head>
+
+</html>
