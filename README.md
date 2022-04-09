@@ -107,6 +107,7 @@ This series can be followed however the user wishes, but was designed to go in t
     3. [Matrix Groups](Groups/matrix-groups.ipynb)
 5. [Rings](Rings)
     1. [Rings](Rings/Rings.ipynb)
+    2. [Quotient Rings](Rings/QuotientRings.ipynb)
 6. [Group Rings](Group-Rings)
     1. [Group Rings](Group-Rings/GroupRings.ipynb)
 7. [Fields](Fields)
