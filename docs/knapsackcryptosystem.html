@@ -23,6 +23,44 @@
   </div>
   <div class="panel-decor">Knapsack Cryptosystem</div>
 
+  <div class="main-content">
+    <h2>Knapsack Cryptosystem</h2>
+    <p>Here we implement the Knapsack Cryptosystem.  The way this is done is by selecting a random
+    super increasing sequence, $a_1,a_2,\dots,a_n$, then selecting a modulus $m>2a_n$,
+    as well as a multiplier $a$ with $\gcd(a,m)=1$.  Next we compute $c=a^{-1}\:\:\text{mod $m$}$.
+    We then compute the sequence $\{b_i\}_1^n$ as follows
+    $$ b_i=aa_i \:\:\text{mod $m$} $$
+    The sequence $\{b_n\}$ is then made public, while $\{a_n\},a,c,$ and $m$ are all kept private.
+    To encode a message, one takes some message, say "help!", and this is converted into binary
+    according to some scheme, in this document, we use 8 bits to encode each letter.  So this message
+    would be encoded to
+    $$ 01101000- 01100101- 01101100- 01110000- 10101100 $$
+    Call this sequence $\{x_i\}$.  Then this would be broken up into blocks of length $n$, and for
+    each block, the sender would compute
+    $$ S = b_1x_1+b_2x_2+\cdots+b_nx_n $$
+    repeating the sequence for each block, and would send the message $S$ over some insucure line.
+    Then the reciever, who knows $a,c,m,$ and $\{a_n\}$, can compute
+    $$ S' \equiv cS \:\:\text{mod $m$} $$
+    which is to say
+    $$ S' \equiv cb_1x_1+cb_2x_2+\cdots+cb_nx_n \:\:\text{mod $m$}$$
+    But since each $b_i$ is equal to $aa_i$, we have that
+    $$ S' \equiv caa_1x_1+caa_2x_2+\cdots+caa_nx_n \:\:\text{mod $m$}$$
+    and since $c$ was chosen to be the multiplicative inverse of $a$ mod $m$, we have that this gives us
+    $$ S' \equiv a_1x_2+a_2x_2+\cdots+a_nx_n \:\:\text{mod $m$}$$
+    And since $0\leq S' < m$, we must have that
+    $$ S' = a_1x_2+a_2x_2+\cdots+a_nx_n $$
+    Which can easily be solved, since $\{a_n\}$ is super increasing. Thus returning the original message $\{x_n\}$.</p>
+
+    <p>In the cell below, we define all necessary functions to implement this cryptosystem in SageMath, run this cell,
+    then continue on to the examples below.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+
+      </script>
+    </div>
+  </div>
+
   <div class="footer">
     <div class="footer-decor">
       <img class="bottom-logo" src="bottom-logo.png" alt="">
@@ -33,6 +71,7 @@
         <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
       </div>
     </div>
+  </div>
 
 
 

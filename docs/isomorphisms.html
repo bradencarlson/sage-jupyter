@@ -24,6 +24,43 @@
   </div>
   <div class="panel-decor">Isomorphisms and Direct Products</div>
 
+  <div class="main-content">
+    <h2>Isomorphisms and Direct Products</h2>
+    <p>Isomorphisms in SageMath can be tested using a function in SageMath.
+    This provides a quick and convenient way to determine whether or not two
+    groups are isomorphic two each other.  The following Sage cell explors this
+    a little.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+G = PermutationGroup(['(1,2)(3,4)','(2,3)(1,4)'])
+A4 = AlternatingGroup(4)
+K = KleinFourGroup()
+S6 = SymmetricGroup(6)
+H = CyclicPermutationGroup(4)
+
+print(f"is G isomorphic to A4: {G.is_isomorphic(A4)}")
+print(f"is G isomorphic to the Klein Four Group: {G.is_isomorphic(K)}")
+print(f"is G isomorphic to S6: {G.is_isomorphic(S6)}")
+print(f"is G isomorphic to H: {G.is_isomorphic(H)}")
+      </script>
+    </div>
+    <h2>Direct Products</h2>
+    <p>Direct products also have a simple implementation in SageMath, using the appropriate
+    constructor, we can define the internal direct product of two groups as follows.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+Z1 = CyclicPermutationGroup(2)
+Z2 = CyclicPermutationGroup(2)
+
+G = direct_product_permgroups([Z1,Z2])
+
+print(G.list())
+print(G.is_isomorphic(K))
+      </script>
+    </div>
+  </div>
   <div class="footer">
     <div class="footer-decor">
       <img class="bottom-logo" src="bottom-logo.png" alt="">
@@ -34,6 +71,7 @@
         <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
       </div>
     </div>
+  </div>
 
 
 
