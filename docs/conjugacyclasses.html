@@ -24,6 +24,124 @@
   </div>
   <div class="panel-decor">Conjugacy Classes</div>
 
+  <div class="main-content">
+    <h2>Conjugacy Classes</h2>
+    <p>Recall that the conjugate of an element $g$ of a group $G$ by $x$ is calculated by
+    \[
+      ^g x = xgx^{-1}
+    \]
+    And the cojugacy class of $g$, denoted $^G x$, is the set of all conjugates of $g$ in $G$.
+    We implement a function in SageMath to calculate these classes as follows.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+# define the conjugacy_class function.  This function will take in an element
+# as well as a group, then will calculate the conjugacy class of that element in the
+# group given.  See below for an example.
+def conjugacy_class(element , group):
+    # define a set to hold all the conjugates of the element
+    conjugates = set(())
+    # for each item in the group, calculate the conjugate and add
+    # it to the set defined in the line above.
+    for i in group.list():
+        conjugates.add((i^(-1))*element*i)
+    # return the final set of all conjugates of the element.
+    return conjugates
+
+  </script>
+    </div>
+
+    <p>We also define some other functions that do similar things, such as calculate
+    all of the cojugacy classes of a group, as well a function that calculates all
+    of the conjugacy classes of a group, and keeps track of which elements generate
+    that conjugacy class.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+# defines a function that calculates all conjugacy classes of a group.
+def all_conjugacy_classes(group):
+    # define a list that will hold all the conjugacy classes of the group.
+    conjugacy_classes = []
+    # for each element in the group,
+    for i in group.list():
+        # define a new set that will be the conjugacy class of that element
+        conjugates = set(())
+        # for each element of the group, add j^{-1}*i*j (remember that Sage
+        # takes this from right to left) to the conjugacy class
+        for j in group.list():
+            conjugates.add((j^(-1))*i*j)
+        # if that conjugate class is not already in the list, add it.
+        if conjugates not in conjugacy_classes:
+            conjugacy_classes.append(conjugates)
+
+    # return the final list of conjugacy classes.
+    return conjugacy_classes
+# define the function that takes in a group.
+def conjugacy_class_gens(group):
+    # define the dictionary that will hold all the conjugacy classes,
+    # as well as which elements generate those classes.
+    conjugacy_classes = {}
+    # for each element in the group,
+    for i in group.list():
+        # create a new set, that will be the conjugacy class of that element.
+        conjugates = set(())
+        for j in group.list():
+            conjugates.add((j^(-1))*i*j)
+        # sort that conjugacy class
+        conjugates = sorted(conjugates)
+        # if the conjugacy class is already found among the keys of the
+        # dictionary defined above, add the element to it's list, if not,
+        # create a new entry with that conjugacy class.
+        if str(conjugates) not in conjugacy_classes.keys():
+            conjugacy_classes[str(conjugates)] = [i]
+        else:
+            conjugacy_classes[str(conjugates)].append(i)
+    # return the final dictionary with all conjugacy classes and generators.
+    return conjugacy_classes
+  </script>
+    </div>
+    <h2>Example</h2>
+    <p>With these tools in hand, we now go through an example of using the above functions.</p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+# define the group S5
+S5 = SymmetricGroup(5)
+
+# define sigma to be (123) in S5
+sigma = S5("(1,2,3)")
+
+# call the new function to calculate the conjugacy class
+con_class = conjugacy_class(sigma, S5)
+
+# print out the conjugacy class
+print(f"The conjugacy class of {sigma} is: {con_class}")
+
+# define the group S4
+S4 = SymmetricGroup(4)
+
+# call the function to calculate all conjugacy classes, and store the
+# result in cc
+cc = all_conjugacy_classes(S4)
+
+# for each item in cc, print out the item.
+print("The conjugacy classes of S4 are:")
+for k in cc:
+    print(f"{k}")
+# define the group A4
+A4 = AlternatingGroup(4)
+
+# create the dictionary of all conjugacy classes
+cc = conjugacy_class_gens(A4)
+
+# for each (key,value) pair in cc.items(), print out the elements that generate the conjugacy
+# class (v), then the conjugacy class (k).
+for k,v in cc.items():
+    print(f"the elements {v} generate the conjugacy class:\n{k}\n\n")
+  </script>
+    </div>
+  </div>
+
 
   <div class="footer">
     <div class="footer-decor">

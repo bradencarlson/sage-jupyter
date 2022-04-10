@@ -24,6 +24,167 @@
   </div>
   <div class="panel-decor">Coding Theory</div>
 
+  <div class="main-content">
+    <h2>Coding Theory</h2>
+    <p>Here we will talk about linear codes, and how to analize them using
+    SageMath.  As discussed in Dr. Andrew Misseldine's
+    <a href="https://www.youtube.com/watch?v=wNOJRy1XFU4&list=PLz7t89zv8Lp23IjeXWNsRGzh2_F8cmUoC">lecture</a>,
+    we are interested in block codes, which will allow us to encode messages, as well as
+    decode them and detect and potentially correct any errors (up to a certain number).
+    The code to create the necesary matrices and message spaces is shown below.</p>
+
+    <div class="sage">
+      <script>
+Z63_2 = MatrixSpace(GF(2),6,3)
+Z36_2 = MatrixSpace(GF(2),3,6)
+
+G = Z63_2([1,0,0, 0,1,0, 0,0,1, 0,1,1, 1,0,1, 1,1,0])
+H = Z36_2([0,1,1,1,0,0, 1,0,1,0,1,0, 1,1,0,0,0,1])
+
+print(G)
+print()
+print(H)
+message = MatrixSpace(GF(2),3,1)
+x = message([0,0,1])
+      </script>
+    </div>
+    <p>Now we create a Bernoulli class, which is a implementation of a Bernoulli
+    distribution, which will then be used in conjunction with the SymmetricChannel
+    class we define later, to introduce random errors into our transmitted messages.
+    We chose the Bernoulli Distribution in this case because of our assumption that
+    errors are uniformly distributed throughout the message, which in practice, is
+    not accurate.  For a discussion of how to deal with errors that tend to occur in
+    bursts, rather than uniformly, we will need the assistance of Polynomial Codes, to
+    be discussed later.<p>
+
+    <div class="sage">
+      <script type="text/x-sage">
+# import the random module to use in the Bernoulli class
+import random
+
+# define the Bernoulli class
+class Bernoulli:
+    # define the constructor, that requires a parameter p, which should
+    # be between zero and one.
+    def __init__(self, p):
+        self.p = p
+
+    # define the method that will display information about the
+    # object when in a print statement
+    def __repr__(self):
+        return f"Bernoulli distribution with parameter {self.p}"
+
+    # define the method that performs a random trial from the
+    # Bernoulli distribution based on the parameter p
+    def randomTrial(self):
+        value = random.random()
+        if value < self.p:
+            return 1
+        else:
+            return 0
+
+# define the SymmetricChannel class
+class SymmetricChannel:
+
+    # define the constructor, which takes in a bernoulli object
+    def __init__(self, b):
+        # if b is a Bernoulli assign it to the bernoulli instance in the class,
+        # if not, set the bernoulli instance to None
+        if type(b) is Bernoulli:
+            self.bernoulli = b
+        else:
+            self.bernoulli = None
+
+    # define the method that will provide information about the object when
+    # in a print statement
+    def __repr__(self):
+        return f"A SymmetricChannel based on a Bernoulli distribution with parameter {self.bernoulli.p}"
+
+    # define a method to test whether or not the SymmetricChannel has been set up correctly.
+    # this just means whether or not the bernoulli object was accepted correctly.
+    def test(self):
+        if type(self.bernoulli) is None:
+            return "Not set up correctly"
+        if type(self.bernoulli) is Bernoulli:
+            return "Set up correctly"
+
+    # this method takes in a matrix, which should be over GF(2), and uses the
+    # bernoulli object to randomly assign errors to the message, to simulate
+    # errors we would see over a real channel.
+    def transmit(self, message):
+        # is the matrix is of the right type, continue to use the Binary Symmetric Channel
+        if type(message) is sage.matrix.matrix_mod2_dense.Matrix_mod2_dense:
+            transmitted = []
+            # for each of the numbers in the message
+            for i in range(0,len(message.rows())):
+                # take a random trial from the bernoulli distribution.
+                value = self.bernoulli.randomTrial()
+                # then based on that random trial, either leave the message alone,
+                # or commit an error in that bit.
+                if value==0:
+                    if message[i] == 0:
+                        transmitted.append(0)
+                    else:
+                        transmitted.append(1)
+                else:
+                    if message[i] == 0:
+                        transmitted.append(1)
+                    else:
+                        transmitted.append(0)
+            # return the new message.
+            return matrix(transmitted).transpose()
+        # if the message was not of the right type, just return it.
+        else:
+            return matrix(message)
+
+      </script>
+    </div>
+
+    <p> Here we go through an example of using the above classes to simulate
+    transmitting a message through a Binary Symmectric Channel, which will
+    introduce random errors into our message, then using our parity check matrix $H$
+    to detect and possibly correct such errors.<p>
+
+    <div class="sage">
+      <script>
+# create a Bernoulli object
+B = Bernoulli(0.05)
+
+# create a SymmetricChannel based on that Bernoulli distribution
+T = SymmetricChannel(B)
+
+# test the SymmetricChannel to ensure that it is ready to receive messages.
+print(T.test())
+# define our message
+x = message([0,1,0])
+
+# encode the message with the matrix G
+encoded = G*x
+
+# transmit the message over the Symmetric Channel
+transmitted = T.transmit(encoded)
+
+# Use the matrix H to check for errors
+checked = H*transmitted
+
+# print H for reference
+print(H)
+print()
+
+# note that all these matrices are column vectors by default, thus it
+# is much easier to read if you print out the transpose
+
+# print both the message that was transmitted and the syndrome of that
+# message
+print(transmitted.transpose())
+print(checked.transpose())
+      </script>
+  </div>
+
+  <p>Run the cell above several times to see errors randomly appear in the recieved
+  message, since our encoding matrix $G$ contains the identity, the first three bits
+  of the recieved message are the original message, assuming no error has occured.</p>
+  </div>
 
   <div class="footer">
     <div class="footer-decor">
@@ -35,6 +196,7 @@
         <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
       </div>
     </div>
+  </div>
 
 
 
