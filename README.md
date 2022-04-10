@@ -112,6 +112,7 @@ This series can be followed however the user wishes, but was designed to go in t
     1. [Group Rings](Group-Rings/GroupRings.ipynb)
 7. [Polynomial Codes](Polynomial-Codes)
     1. [Polynomial Codes](Polynomial-Codes/PolynomialCodes.ipynb)
+    2. [BCH Codes](Polynomial-Codes/BCH.ipynb)
 8. [Fields](Fields)
     1. [Fields](Fields/Fields.ipynb)
 
