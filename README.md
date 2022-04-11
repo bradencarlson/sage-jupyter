@@ -64,13 +64,13 @@ Also note that this package, while found on [PyPi](https://pypi.org/project/sage
 installed with the following command:
 
 ```
-python3 -m pip install sage-aata
+pip install sage-aata
 ```
 
 And updated with the command 
 
 ```
-python3 -m pip install --upgrade sage-aata
+pip install --upgrade sage-aata
 ```
 
 
