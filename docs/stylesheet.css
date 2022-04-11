@@ -8,7 +8,7 @@
   in the panel */
   --mainBackground: #fff; /* was #dbdbdd background color of the main document */
   --linkColor: #4c594c;  /* was #4c594c, color of all links in the side menu */
-  --linkColorHover: #ff0000; /* was #8b08f7, color of all links in the side menu when hovered
+  --linkColorHover: #66f; /* was #8b08f7, color of all links in the side menu when hovered
   over */
   --panelDecorColor: #66f; /* was #8b08f7 */
   --logoColor: #F78B08; /* this is the logo color, THIS SHOULD NOT BE CHANGED */
