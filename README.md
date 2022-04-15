@@ -116,6 +116,7 @@ This series can be followed however the user wishes, but was designed to go in t
 8. [Fields](Fields)
     1. [Fields](Fields/Fields.ipynb)
     2. [Galois Groups](Fields/GaloisGroups.ipynb)
+    3. [Solvability By Radicals](Groups/Solvable.ipynb)
 
 ## Miscellaneous Files
 
