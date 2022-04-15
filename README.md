@@ -115,6 +115,7 @@ This series can be followed however the user wishes, but was designed to go in t
     2. [BCH Codes](Polynomial-Codes/BCH.ipynb)
 8. [Fields](Fields)
     1. [Fields](Fields/Fields.ipynb)
+    2. [Galois Groups](Fields/GaloisGroups.ipynb)
 
 ## Miscellaneous Files
 
