@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Autokey Cipher</title>
+  <title>Vignere Cipher</title>
   <link rel="stylesheet" href="stylesheet.css">
   <script src="jsmath/easy/load.js"></script>
   <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
@@ -10,7 +10,6 @@
                                  "editor": "codemirror",
                                  "linked": true });</script>
 </head>
-
 <div class="panel">
   <nobr>
     <img class="logo" src="logo.png" alt="logo">
@@ -22,25 +21,45 @@
     <a class="menu-item" href="https://pypi.org/project/sage-aata/">PyPi</a>
   </div>
 </div>
-<div class="panel-decor">Autokey Cipher</div>
+<div class="panel-decor">Vignere Cipher</div>
+
+
 
 <body>
+
   <div class="main-content">
-    <h2>Autokey Cipher</h2>
-    <p>In the cell that follows, we define our encode/decode functions, as well
-    as all the functions that are needed to implement the Autokey Cipher in SageMath.
-    Run this cell to define all necessary functions, then proceed to the examples.</p>
-
-    <p>Recall that to use the Autokey Cipher, one simply chooses a key, which is
-    a single letter of the alphabet in question, then one encrypts the first letter
-    of the message with the key, then that encrypted letter becomes the key for
-    the second letter, and so on. Decryption is similar.</p>
-
+    <h2>Vignere Cipher</h2>
+    <p>Here we will take a look at the Vigenere Cipher.  This cipher is
+    performed by first choosing a secret code word.  The code word is known
+    by both the sending party and the recieving party.  The plaintext and the
+    code word are then both encoded according to some scheme.  We then take
+    the encoded message, and we add the first number of the codeword to the
+    first number of the plaintext, the second number of the codeword to the
+    second letter of the plaintext, and so on until we reach the end of the
+    message, repeating the codeword as many times that is necessary.  Let the
+    secret code word be CAT, and let our encoding scheme be $A\rightarrow 00$,
+    $B\rightarrow 01$, $\dots$, $Z\rightarrow 25$.
+    \[
+      \begin{array}{ccccccc}
+      & A & T & T & A & C & K \\
+      & 00 & 19 & 19 & 00 & 02 & 10 \\
+      & C & A & T & C & A & T \\
+      + & 02 & 00 & 19 & 02 & 00 & 19 \\
+      \hline
+      & 02 & 19 & 12 & 02 & 02 & 03 \\
+      & C & T & M & C & C & D
+      \end{array}
+    \]
+    Run the following code to define all necessary functions, then proceed to the
+    examples.</p>
 
     <div class="sage">
       <script type="text/x-sage">
+# this takes a string and converts it into numbers
 def digitize(string):
+    # create a new array to contains the digitized string
     cipher_text = []
+    # for each element of the string, append its corresponding digit to the cipher_text[] array
     for i in string:
         if i == 'A' or i == 'a': cipher_text.append(0)
         if i == 'B' or i == 'b': cipher_text.append(1)
@@ -70,6 +89,8 @@ def digitize(string):
         if i == 'Z' or i == 'z': cipher_text.append(25)
     return cipher_text
 
+# takes a digitized array, and turns it back into the plain text, just as the
+# method above does
 def alphabetize(digits):
     plain_text = ""
     for i in digits:
@@ -101,40 +122,50 @@ def alphabetize(digits):
         if i == 25: plain_text = plain_text + "Z"
     return plain_text
 
-def AutoKeyEncrypt(plaintext: str, seed: str):
+
+# here we define the VignereEncrypt and Decrypt method.
+def VigenereEncrypt(plaintext: str, codeword: str):
+    # take in the plaintext string and the keyword,
+    # create the digitized array
     ciphertext = digitize(plaintext)
-    number = digitize(seed)[0]
+    # create the digitized codeword
+    code = digitize(codeword)
+    # go through the digitized plaintext and encipher it
     for i in range(0,len(ciphertext)):
-        temp = ciphertext[i]
-        ciphertext[i] = (ciphertext[i] + number) % 26
-        number = temp
+        position = i % len(code)
+        ciphertext[i] = (ciphertext[i] + code[position]) % 26
+    # return the ciphertext
     return alphabetize(ciphertext)
 
-def AutoKeyDecrypt(ciphertext: str, seed: str):
+# do the reverse
+def VigenereDecrypt(ciphertext: str, codeword: str):
+    # digitize the cipher text
     plaintext = digitize(ciphertext)
-    number = digitize(seed)[0]
+    # and the codeword
+    code = digitize(codeword)
+    # then go through and decode the ciphertext
     for i in range(0,len(plaintext)):
-        plaintext[i] = (plaintext[i] - number) % 26
-        number = plaintext[i]
+        position = i % len(code)
+        plaintext[i] = (plaintext[i] - code[position]) % 26
+    # return the plaintext string.
     return alphabetize(plaintext)
-
       </script>
     </div>
 
-    <h2>Examples</h2>
-    <p>Here we go through a quick example, as this is one of the easier encryption
-    schemes to implement, this section is quite short.</p>
 
-    <div class="sage">
-      <script type="text/x-sage">
-message = "hello there"
-key = "e"
-encrypted = AutoKeyEncrypt(message,key)
-print("Encrypted message: ",encrypted)
-decrypted = AutoKeyDecrypt(encrypted,key)
-print("Decrypted message: ",decrypted)
-      </script>
-    </div>
+  <h2>Example</h2>
+  <p>Here we have an example of this code in use.  We use the same message as
+  the example above, as well as the same code word.  We call the
+  VigenereEncrypt() method to encrypt the word ATTACK, then we demostrate the
+  VigenereDecrypt() function to decrypt the message CTMCCD.</p>
+
+  <div class="sage">
+    <script type="text/x-sage">
+print(VigenereEncrypt("Attack", "Cat"))
+print(VigenereDecrypt("CTMCCD", "CAT"))
+    </script>
+  </div>
+
   </div>
 
   <div class="footer">
@@ -150,35 +181,5 @@ print("Decrypted message: ",decrypted)
   </div>
 
 </body>
-<script>
-  var buttons = document.getElementsByClassName("sagecell_fullScreen");
-  var divs = document.getElementsByTagName("div");
-  var button_index = "10000";
-  setTimeout(()=> { change_buttons() } ,1000);
-  function change_buttons() {
-    for(let i = 0; i< buttons.length; i++) {
-      buttons[i].onclick = function(){
-
-        if (divs[0].style.zIndex!="-1") {
-          divs[0].style.zIndex = "-1";
-          divs[2].style.zIndex = "-1";
-        } else {
-          divs[0].style.zIndex = "10001";
-          divs[2].style.zIndex = "10001";
-        }
-        for(let j = 0; j< buttons.length; j++) {
-          if (j!=i) {
-            if (buttons[j].style.zIndex != "-5") {
-              buttons[j].style.zIndex = "-5";
-            } else {
-              buttons[j].style.zIndex = button_index;
-            }
-          }
-        }
-
-      };
-    }
-  }
-</script>
 
 </html>
