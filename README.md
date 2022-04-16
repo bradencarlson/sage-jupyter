@@ -57,10 +57,9 @@ SageMath will find this Project helpful in their journey to using SageMath.
 
 ## Package
 
-This project can now be found in a package! Please keep in mind that this package is still a work in progress, and is not fully functional at the moment.  Please 
-visit the [Projects](https://github.com/bradencarlson/sage-jupyter/projects?type=beta) page to see which functions are working at the moment. 
+This project can now be found in a package! The package is stable as of version 0.3.8.  
 
-Also note that this package, while found on [PyPi](https://pypi.org/project/sage-aata/), is made to be used with SageMath, and not Python.  This package can be 
+Note that this package, while found on [PyPi](https://pypi.org/project/sage-aata/), is made to be used with SageMath, and not Python.  This package can be 
 installed with the following command:
 
 ```
