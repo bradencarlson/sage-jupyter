@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Polynomial Codes</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+  <script>sagecell.makeSagecell({"inputLocation": "div.sage",
+                                 "editor": "codemirror",
+                                 "linked": true });</script>
+</head>
+
+
+<body>
+  <div class="panel">
+    <nobr>
+      <img class="logo" src="logo.png" alt="logo">
+      <a class="title" href="index.html">Project Sage-Jupyter</a>
+    </nobr>
+    <div class="menu-item-container">
+      <a class="menu-item" href="index.html">Home</a>
+      <a class="menu-item" href="https://github.com/bradencarlson/sage-jupyter/">Github</a>
+      <a class="menu-item" href="https://pypi.org/project/sage-aata/">PyPi</a>
+    </div>
+  </div>
+  <div class="panel-decor">Polynomial Codes</div>
+
+
+<div class="main-content">
+
+<h2>Polynomial Codes</h2>
+<p>We can easily identify messages from $\mathbb{Z}_2^{k}$ with a polynomial in $\mathbb{Z}_2[x]$ with the following map
+\[ (a_0,a_1,\dots,a_{k-1})\rightarrow a_0+a_1x+\cdots +a_{k-1}x^{k-1} \]
+If we then fix some nonconstant polynomial $g(x)\in\mathbb{Z}_2[x]$ of degree $n-k$, we can create a $(n,k)$-code defined by multiplication the polynomial $g(x)$.  We will make use of Polynomial Rings in SageMath to implement this
+here.  Consider the following example, taken from Judson's <i>Abstract Algebra: Theory and Applications</i>.</p>
+
+<div class="sage">
+  <script>
+Z.<x> = PolynomialRing(IntegerModRing(2))
+
+# here we are creating a (6,3)-code
+g = 1+x^3
+
+# create a codeword f = 011
+f = x+x^2
+
+encoded = f*g
+
+print(encoded)
+
+# print the actual binary encoded message
+print(list(encoded))
+  </script>
+</div>
+<p>Here is another example, complete with creating a message and encodeding it.</p>
+
+<div class="sage">
+  <script>
+def create_matrix(p,n,k):
+    matrix = []
+    for i in range(0,k):
+        row = p*(x^i)
+        row = list(row)
+        while len(row)<n:
+            row.append(0)
+        matrix.append(list(row))
+    return Matrix(matrix).transpose()
+
+g = x^3+x^2+1
+m = create_matrix(g,7,4)
+print(m)
+
+message = Matrix([0,1,1,1]).transpose()
+print(m*message)
+  </script>
+</div>
+
+<h2>BCH Codes</h2>
+<p>Here we will expound on the polynomial codes that we explored in the previous document.  BCH codes are very
+similar, although we are a little more careful with the choice of the generating polynomial.  Let $d=2r+1$.  Then if
+\[ g(x)=\text{lcm}\{m_1(x),m_2(x),\dots,m_{2r}(x)\} \]
+where $m_i(x)$ is the minimal polynomial of $\omega^i$ where $\omega $ is the primitive $n^{th}$ root of unity
+over $\mathbb{Z}_2$, then with this choice of $g$, we have that the cyclic code $\left<g(x)\right>$ in
+\[ \frac{\mathbb{Z}_2[x]}{\left<x^n-1\right>} \]
+is called the BHC code of length $n$ and distance $d$.  If we recall the previous results from the Linear codes
+that were discussed earlier, we have that this code can detect $2r$ errors, and correct $r$ errors.</p>
+
+<p>Here is an example of defining a BCH code, and encoding a message using the corresponding
+matrix.</p>
+
+<div class="sage">
+  <script>
+def create_matrix(p,n,A):
+    matrix = []
+    for i in range(0,n-p.degree()):
+        row = p*(x^i)
+        row = list(row)
+        while len(row)!=n:
+            row.append(0)
+        matrix.append(row)
+    matrix1 = []
+    h = (x^n+1)/p
+    h = A(h)
+    for i in range(0,n-h.degree()):
+        h = A(h)
+        row = h*(x^i)
+        row = A(row)
+        row = list(row)
+        row.reverse()
+        while len(row)<n:
+            row.insert(0,0)
+        matrix1.append(row)
+    #return Matrix(matrix).transpose(), Matrix(matrix1)
+    return matrix, matrix1
+
+Z.<x> = PolynomialRing(IntegerModRing(2))
+g = 1+x^4+x^6+x^7+x^8
+G,H = create_matrix(g,15,Z)
+
+G = Matrix(G).transpose()
+H = Matrix(H)
+print(H*G)
+
+message = Matrix([0,1,0,1,0,1,0]).transpose()
+encoded = G*x
+decoded = H*encoded
+print(decoded)
+  </script>
+</div>
+
+<p>Similarly to what we did with Linear Codes, we define a BurstChannel that we can
+transmit our messages through, which will randomly flip bits in the message.  This class
+will also have a higher probability of burst errors, that is, if the previous bit has
+been flipped, then the probability that the next bit will be flipped is higher.
+In this cell we also define encode and decode functions, so that we may use lists
+for our messages, rather than matrices. Run the
+next cell to define this class, then proceed to the examples.</p>
+
+<div class="sage">
+  <script>
+# import the random module to use in the Bernoulli class
+import random
+
+# define the Bernoulli class
+class Bernoulli:
+    # define the constructor, that requires a parameter p, which should
+    # be between zero and one.
+    def __init__(self, p):
+        self.p = p
+
+    # define the method that will display information about the
+    # object when in a print statement
+    def __repr__(self):
+        return f"Bernoulli distribution with parameter {self.p}"
+
+    # define the method that performs a random trial from the
+    # Bernoulli distribution based on the parameter p
+    def randomTrial(self):
+        value = random.random()
+        if value < self.p:
+            return 1
+        else:
+            return 0
+
+class BurstChannel:
+    def __init__(self, b, p):
+        self.B = Bernoulli(b)
+        self.burst = Bernoulli(p)
+    def __repr__(self):
+        return f"Burst Channel based on {self.B}"
+
+
+    def transmit(self,message):
+        previous_flip = False
+        flip = False
+        for i in range(0,len(message)):
+            if not previous_flip:
+                previous_flip = self.B.randomTrial()
+                if previous_flip:
+                    message[i] = (message[i]+1) % 2
+            else:
+                previous_flip = self.burst.randomTrial()
+                if previous_flip:
+                    message[i] = (message[i]+1) % 2
+        return message
+
+def encode(message,G):
+    message = Matrix(message).transpose()
+    encoded = G*message
+    encoded = list(encoded.transpose())
+    return list(encoded[0])
+
+def decode(message,H):
+    message = Matrix(message).transpose()
+    decoded = H*message
+    decoded = list(decoded.transpose())
+    return list(decoded[0])
+  </script>
+</div>
+
+<h2>Example</h2>
+<p>Here we have a full example of encoded a message using the encoding matrix
+defined above, sending the message through the burst channel, then decoding it,
+run this cell several times to see how the syndrome of the message changes as we
+see different errors in the message.</p>
+
+<div class="sage">
+  <script>
+B = BurstChannel(.2,.6)
+
+encoded = encode([0,1,1,1,1,0,0],G)
+
+print("encoded:\t",encoded)
+
+transmitted = B.transmit(encoded)
+
+print("transmitted:\t",transmitted)
+
+decoded = decode(transmitted,H)
+
+print("decoded:\t",decoded)
+  </script>
+</div>
+
+
+
+</div>
+<div class="footer">
+  <div class="footer-decor">
+    <img class="bottom-logo" src="bottom-logo.png" alt="">
+    <div class="bottom-logo-decor"></div>
+  </div>
+  <div class="footer-content">
+    <div class="footer-content-block">
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+    </div>
+  </div>
+</div>
+</body>
+<script>
+  var buttons = document.getElementsByClassName("sagecell_fullScreen");
+  var divs = document.getElementsByTagName("div");
+  var button_index = "10000";
+  setTimeout(()=> { change_buttons() } ,1000);
+  function change_buttons() {
+    for(let i = 0; i< buttons.length; i++) {
+      buttons[i].onclick = function(){
+
+        if (divs[0].style.zIndex!="-1") {
+          divs[0].style.zIndex = "-1";
+          divs[2].style.zIndex = "-1";
+        } else {
+          divs[0].style.zIndex = "10001";
+          divs[2].style.zIndex = "10001";
+        }
+        for(let j = 0; j< buttons.length; j++) {
+          if (j!=i) {
+            if (buttons[j].style.zIndex != "-5") {
+              buttons[j].style.zIndex = "-5";
+            } else {
+              buttons[j].style.zIndex = button_index;
+            }
+          }
+        }
+
+      };
+    }
+  }
+</script>
+
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Rings</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+  <script>sagecell.makeSagecell({"inputLocation": "div.sage",
+                                 "editor": "codemirror",
+                                 "linked": true });</script>
+</head>
+
+<body>
+<div class="panel">
+  <nobr>
+    <img class="logo" src="logo.png" alt="logo">
+    <a class="title" href="index.html">Project Sage-Jupyter</a>
+  </nobr>
+  <div class="menu-item-container">
+    <a class="menu-item" href="index.html">Home</a>
+    <a class="menu-item" href="https://github.com/bradencarlson/sage-jupyter/">Github</a>
+    <a class="menu-item" href="https://pypi.org/project/sage-aata/">PyPi</a>
+  </div>
+</div>
+<div class="panel-decor">Rings</div>
+
+<div class="main-content">
+<h2>Rings</h2>
+<p>We will now explore Rings in SageMath.  There are a few rings that we have
+encountered in this project already, namely:
+<ul>
+  <li>IntegerModRing(n)</li>
+  <li>ZZ the ring of integers</li>
+  <li>QQ the ring of rational numbers</li>
+  <li>RR the ring of real numbers</li>
+</ul>
+Here we will explore a few others, most notably, given a ring $R$, we will form
+the polynomial ring $R[x]$, by adjointing an indeterminant to the ring $R$.  Please
+see the following cell for a few examples.</p>
+
+<div class="sage">
+  <script>
+# form the ring of integers
+R = ZZ
+
+# form the polynomial ring (in x) over the ring of integers
+Z.<x> = PolynomialRing(ZZ)
+# form the polynomial ring (in z) over the real numbers
+R.<z> = PolynomialRing(RR)
+print(factor(x^2-2))
+print(factor(z^2-2))
+  </script>
+</div>
+<p>The results here are different since SageMath knows to treat these are elements
+of different rings.  Here is another example.</p>
+
+<div class="sage">
+  <script>
+R.<x> = PolynomialRing(IntegerModRing(13))
+print(R.random_element())
+print(factor(x^2-1))
+  </script>
+</div>
+
+<h2>Quotient Rings</h2>
+<p>We can also form quotient rings within SageMath, see the following example,
+where we form the quotient ring
+\[
+  \frac{\mathbb{Z}[x]}{x^5-3x+1}
+\]
+</p>
+
+<div class="sage">
+  <script>
+R.<x> = PolynomialRing(ZZ)
+Q.<y> = R.quotient_ring(x^5-3*x+1)
+p = y^3-3*y+7
+q = y^4-2*y^2
+print(p*q)
+  </script>
+</div>
+<p>Note that the indeterminant that we adjoint here is important, as it is how
+SageMath recognizes that a polynomial is an element of the Polynomial Ring.</p>
+
+<h2>Group Rings</h2>
+<p>One last thing that we will do with rings in SageMath, we will do some calculations
+within a group ring.  Recall that if $R$ is a ring and $G$ is a group, then the
+group ring $R(G)$ is defined to be
+\[
+  R(G)=\left\{\sum_{g\in G}\alpha_gg:\alpha_g\in R\right\}
+\]
+That is, $R(G)$ is the set of all sums of elements of $G$ with coefficients in $R$.
+We demonstrate SageMath's ability to handle these in the following cell.</p>
+
+<div class="sage">
+  <script>
+R = IntegerModRing(12)
+G = SymmetricGroup(4)
+
+RG = GroupAlgebra(G,R)
+
+a = R(2)*RG(G('(1,2,3)'))+R(4)*RG(G('(2,3)(1,4)'))
+b = R(3)*RG(G('(1,2)'))+R(9)*RG(G('(1,2,3,4)'))
+print(a*b)
+  </script>
+</div>
+<p>Here we have done the following calculation:
+\[
+  (2(123)+4(23)(14))(3(12)+9(1234))=6(23)+6(1324)
+\]
+in the group ring $\mathbb{Z}_{12}(S_4)$.  In the above cell, enclosing the group
+elements with $RG(\dots)$ is necessary so SageMath knows that what we are writing
+is meant to be an element of the group ring we have defined, if we do not do this
+then we recieve an error that the ring elements and the group elements are not
+compatible with each other.</p>
+</div>
+
+
+<div class="footer">
+  <div class="footer-decor">
+    <img class="bottom-logo" src="bottom-logo.png" alt="">
+    <div class="bottom-logo-decor"></div>
+  </div>
+  <div class="footer-content">
+    <div class="footer-content-block">
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+  var buttons = document.getElementsByClassName("sagecell_fullScreen");
+  var divs = document.getElementsByTagName("div");
+  var button_index = "10000";
+  setTimeout(()=> { change_buttons() } ,1000);
+  function change_buttons() {
+    for(let i = 0; i< buttons.length; i++) {
+      buttons[i].onclick = function(){
+
+        if (divs[0].style.zIndex!="-1") {
+          divs[0].style.zIndex = "-1";
+          divs[2].style.zIndex = "-1";
+        } else {
+          divs[0].style.zIndex = "10001";
+          divs[2].style.zIndex = "10001";
+        }
+        for(let j = 0; j< buttons.length; j++) {
+          if (j!=i) {
+            if (buttons[j].style.zIndex != "-5") {
+              buttons[j].style.zIndex = "-5";
+            } else {
+              buttons[j].style.zIndex = button_index;
+            }
+          }
+        }
+
+      };
+    }
+  }
+</script>
+
+
+</html>
