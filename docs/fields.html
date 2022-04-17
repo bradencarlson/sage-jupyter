@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Fields</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="jsmath/easy/load.js"></script>
+  <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+  <script>sagecell.makeSagecell({"inputLocation": "div.sage",
+                                 "editor": "codemirror",
+                                 "linked": true });</script>
+</head>
+<div class="panel">
+  <nobr>
+    <img class="logo" src="logo.png" alt="logo">
+    <a class="title" href="index.html">Project Sage-Jupyter</a>
+  </nobr>
+  <div class="menu-item-container">
+    <a class="menu-item" href="index.html">Home</a>
+    <a class="menu-item" href="https://github.com/bradencarlson/sage-jupyter/">Github</a>
+    <a class="menu-item" href="https://pypi.org/project/sage-aata/">PyPi</a>
+  </div>
+</div>
+<div class="panel-decor">Fields</div>
+
+
+
+
+
+<body>
+  <div class="main-content">
+    <h2>Fields</h2>
+    <p>We will now be exploring Fields in SageMath.  Recall that there is one field
+    of order $p^k$ where $p$ is a prime, that the Galois field of order $p^k$.  In SageMath
+    this is defined by writing $GF(p^k)$.  Recall that we can also come up with these fields
+    taking a quotient with a maximal ideal of a ring.</p>
+
+    <p>There are a few other functions that we will be using to study Fields, namely
+      <ul>
+        <li>.modulus() - returns the modulus of the field.</li>
+        <li>.multiplicative_order() - returns the multiplicative order of the field.</li>
+        <li>factor() - factors an element of the field, given it is not equivalent
+          to zero.</li>
+      </ul></p>
+
+    <div class="sage">
+      <script>
+F = GF(2^3)
+
+for i in F.list():
+    print(i)
+print()
+
+F.<a> = FiniteField(8)
+for i in F.list():
+    print(i)
+      </script>
+    </div>
+
+    <h2>Galois Groups</h2>
+    <p>Studying Galois groups in SageMath will require a few new functions and classes
+    that we have not yet encountered, namely:
+    <ul>
+      <li>QuadraticField($a$) - forms a quadratic extension of $\mathbb{Q}$ by adjoining
+      $\sqrt{a}$ to the rational numbers.</li>
+      <li>.galois_group() - returns the Galois group of a field.  </li>
+      <li>NumberField($p(x)$) - forms a field extension over $\mathbb{Q}$ by adjoining the
+      roots of $p$ to $\mathbb{Q}$.</li>
+    </ul>
+
+    <p>We go over an example in the next cell.</p>
+
+    <div class="sage">
+      <script>
+F = QuadraticField(3)
+print(F.absolute_degree())
+
+G = F.galois_group()
+print(G.order())
+print("These two numbers agree, since this was a Galois extension.")
+
+F.<a> = NumberField(x^5+10*x+2)
+G = F.galois_group('gap')
+print(G.order())
+      </script>
+    </div>
+    <p>Note the difference in syntax between these two different methods, when
+    using the NumberField() constructor, we must specify the generator, or SageMath
+    returns an error.</p>
+
+  </div>
+
+</body>
+
+<div class="footer">
+  <div class="footer-decor">
+    <img class="bottom-logo" src="bottom-logo.png" alt="">
+    <div class="bottom-logo-decor"></div>
+  </div>
+  <div class="footer-content">
+    <div class="footer-content-block">
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+    </div>
+  </div>
+</div>
+
+
+<script>
+var buttons = document.getElementsByClassName("sagecell_fullScreen");
+var divs = document.getElementsByTagName("div");
+var button_index = "10000";
+setTimeout(()=> { change_buttons() } ,1000);
+function change_buttons() {
+  for(let i = 0; i< buttons.length; i++) {
+    buttons[i].onclick = function(){
+
+      if (divs[0].style.zIndex!="-1") {
+        divs[0].style.zIndex = "-1";
+        divs[2].style.zIndex = "-1";
+      } else {
+        divs[0].style.zIndex = "10001";
+        divs[2].style.zIndex = "10001";
+      }
+      for(let j = 0; j< buttons.length; j++) {
+        if (j!=i) {
+          if (buttons[j].style.zIndex != "-5") {
+            buttons[j].style.zIndex = "-5";
+          } else {
+            buttons[j].style.zIndex = button_index;
+          }
+        }
+      }
+
+    };
+  }
+}
+</script>
+
+
+
+</html>

@@ -80,8 +80,10 @@ print(m*message)
 similar, although we are a little more careful with the choice of the generating polynomial.  Let $d=2r+1$.  Then if
 \[ g(x)=\text{lcm}\{m_1(x),m_2(x),\dots,m_{2r}(x)\} \]
 where $m_i(x)$ is the minimal polynomial of $\omega^i$ where $\omega $ is the primitive $n^{th}$ root of unity
-over $\mathbb{Z}_2$, then with this choice of $g$, we have that the cyclic code $\left<g(x)\right>$ in
-\[ \frac{\mathbb{Z}_2[x]}{\left<x^n-1\right>} \]
+over $\mathbb{Z}_2$, then with this choice of $g$, we have that the cyclic code $\langle g(x)\rangle$ in
+\[
+  \frac{\mathbb{Z}_2[x]}{\langle x^n-1\rangle }
+\]
 is called the BHC code of length $n$ and distance $d$.  If we recall the previous results from the Linear codes
 that were discussed earlier, we have that this code can detect $2r$ errors, and correct $r$ errors.</p>
 
