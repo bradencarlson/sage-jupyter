@@ -22,7 +22,7 @@ will also guide the user through a few important and very interesting applicatio
 is being studied; such as the Ceasar Cipher, the RSA 
 Encryption system, as well as Algebraic Coding theory.   
 
-## No Installation? No Problem!
+### No Installation? No Problem!
 
 This Project may be used with no local installation of SageMath or Jupyter Notebooks.  If no access 
 to a local installation is available, 
@@ -44,7 +44,7 @@ create a new project, and upload the file that needs to be executed.  **CoCalc i
 
 
 
-## Getting Started
+### Getting Started
 
 While the entirety of this Project may be used without installing SageMath or Jupyter Notebooks, the crux of this
 Project is to use both of these programs to 
@@ -73,7 +73,7 @@ language works, although most code is either commented or coupled with notes to 
 to accomplish.  Thus, any student of 
 SageMath will find this Project helpful in their journey to using SageMath. 
 
-## Package
+### Package
 
 This project can now be found in a package! The package is stable as of version 0.3.8.  
 
@@ -93,7 +93,7 @@ pip install --upgrade sage-aata
 
 
 
-## Series
+### Series
 
 This series can be followed however the user wishes, but was designed to go in the following order:
 
@@ -136,7 +136,7 @@ This series can be followed however the user wishes, but was designed to go in t
     2. [Galois Groups](Fields/GaloisGroups.ipynb)
     3. [Solvability By Radicals](Groups/Solvable.ipynb)
 
-## Miscellaneous Files
+### Miscellaneous Files
 
 In the Misc folder, we discuss selected topics that do not neccessarily have to do with the Abstract Algebra course 
 taught by Dr. Andrew Misseldine 
@@ -148,7 +148,7 @@ at Southern Utah University.  In this folder we currently have files that dicuss
 
 We also have a few files written in `c` that implement some of the algorithms found in this project.
 
-## How to Help
+### How to Help
 
 If at any point while using this Project you encounter an error, you would like to see an additional topic discussed,
 or if any of the topics discussed are 
