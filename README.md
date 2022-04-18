@@ -10,7 +10,7 @@ SageMath files (via Jupyter Notebooks) that give an introduction to using SageMa
 
 Originally created as a project for Math 4220 at Southern Utah University, this Project will guide the user through installing SageMath and Jupyter Notebooks.  The 
 user will then be introduced to basic computations in SageMath, as well as experimenting with group theory.  SageMath provides a rich environment for visualizing 
-and experimenting with groups, including functionality with subgroups, cayley tables, isomorphisms, and more.
+and experimenting with groups, rings, fields, as well as a few selected applications.
 
 The goal of this Project is to help students everywhere, although it is primarily aimed at students of Abstract Algebra, to learn the syntax of SageMath, so as 
 to provide them with a helpful tool to visualize and understand the topics taught in an undergraduate Abstract Algebra course.  While doing this, the Project 
@@ -19,11 +19,13 @@ Encryption system, as well as Algebraic Coding theory.
 
 ## No Installation? No Problem!
 
-This Project may be used with no local installation of SageMath or Jupyter Notebooks.  If one does not have access to these resources, 
-all code used in this Project may be executed on the [Sage Cell](https://sagecell.sagemath.org/) webpage.  To do this, please visit the [Python](Python) folder, 
+This Project may be used with no local installation of SageMath or Jupyter Notebooks.  If no access to a local installation is available, 
+please visit our [Project Page](https://bradencarlson.github.io/sage-jupyter) to see all the examples in this project.  Alternatively, all code used in this
+Project may be executed on the [Sage Cell](https://sagecell.sagemath.org/) webpage.  To do this, please visit the [Python](Python) folder, 
 and copy the code that needs to be run. This code should then be pasted into the cell at the webpage above and can then be executed.  
 
-In Addition to SageCell, which gives a feel for what it would be like to run this code from a terminal, an online alternative to Jupyter Notebooks is also 
+In Addition to SageCell, which gives a feel for what it would be like to run this code from a terminal, an 
+online alternative to Jupyter Notebooks is also 
 available.  [CoCalc](https://cocalc.com/) is a great resource that may be used as an alternative to Jupyter Notebooks.  This will allow the user to view the 
 documents used in this Project just as they were designed to be seen in Jupyter Notebooks.  To use this resource, download the code 
 that needs to be run, (either the python code or the original `.ipynb` files, note that the latter will give prettier output), create an account with CoCalc, 
