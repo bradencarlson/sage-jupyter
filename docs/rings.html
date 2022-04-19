@@ -113,6 +113,44 @@ elements with $RG(\dots)$ is necessary so SageMath knows that what we are writin
 is meant to be an element of the group ring we have defined, if we do not do this
 then we recieve an error that the ring elements and the group elements are not
 compatible with each other.</p>
+
+<p>There are two other operations that are very important in Group Rings, these
+are the $*$ and $\hat{C}$.  If $G(R)$ is a group ring, and $\alpha\in G(R)$, given
+by
+\[
+  \alpha=\sum_{g\in G}\alpha_gg, \alpha_g\in R
+\]
+Then $\alpha^*$ is defined by
+\[
+  \alpha^*=\sum_{g\in G}\alpha_gg^{-1}
+\]
+If $C\subset G$, then $\hat{C}$ is defined by
+\[
+  \hat{C}=\sum_{g\in C}g
+\]
+We have code below that defines and demonstrates these functions.</p>
+
+<div class="sage">
+  <script>
+def star(a, groupRing):
+    element = list(a)
+    newElement = RG(0)
+    for group,ring in element:
+        newElement = newElement + ring*groupRing(group.inverse())
+    return newElement
+
+def hat(C, groupRing):
+    elements = list(C)
+    element = groupRing(elements[0])
+    for i in range(1,len(elements)):
+        element = element + groupRing(elements[i])
+    return element
+
+RG = GroupAlgebra(SymmetricGroup(4),IntegerModRing(12))
+C = SymmetricGroup(4).subgroup(['(1,2)','(3,4)'])
+print(hat(C,RG))
+  </script>
+</div>
 </div>
 
 
