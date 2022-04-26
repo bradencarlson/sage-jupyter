@@ -138,6 +138,17 @@ In this cell we also define encode and decode functions, so that we may use list
 for our messages, rather than matrices. Run the
 next cell to define this class, then proceed to the examples.</p>
 
+<p>The Bernoulli class acts just like a Bernoulli trial, with the .randomTrial() method,
+we recieve a 0 or a 1, and the probablility that we recieve a 1 is the number $p$ that
+was passed to the constructor, which must be between zero and one.  The BurstChannel
+class acts as a symmetric channel, that will ocasionally introduce errors into the
+message that is being passed through it.  If the previous bit of the message has been flipped,
+then the probability that the next bit will be flipped is higher, therefore increasing the
+probability of burst errors that occur adjacent to one another. The constructor for
+the BurstChannel class takes in the probability of an error, as well as the probability
+of the next bit having an error, given that the previous bit contains an error, in that
+order.</p>
+
 <div class="sage">
   <script>
 # import the random module to use in the Bernoulli class
