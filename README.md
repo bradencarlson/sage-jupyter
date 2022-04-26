@@ -114,7 +114,7 @@ This series can be followed however the user wishes, but was designed to go in t
     3. [Subgroups](Groups/Subgroups.ipynb)
     4. [Cosets](Groups/Cosets.ipynb)
 3. [Cryptography and Coding Theory](Cryptography)
-    1. [Ceasar Cipher](Cryptography/CeasarCipher.ipynb)
+    1. [Caesar Cipher](Cryptography/CaesarCipher.ipynb)
     2. [Frequency Analysis](Cryptography/FrequencyAnalysis.ipynb)
     3. [Hill Cipher](Cryptography/Hill-cipher.ipynb)
     4. [RSA Encryption](Cryptography/RSA-encryption.ipynb)
