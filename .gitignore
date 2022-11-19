@@ -1,0 +1,3 @@
+
+# ignore all .ipynb_checkpoints directories
+.ipynb_checkpoints/*
