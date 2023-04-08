@@ -59,7 +59,7 @@ We will then guide the user on how to [run a Jupyter Notebook Server](Running/ru
 preliminary tasks are taken care of, we begin the 
 discussion of selected topics in Abstract Algebra.  This will take place in a number of Jupyter Notebooks.  Note that
 the sequence of these notebooks will follow 
-the Youtube series of [Abstract Algebra lectures](https://www.youtube.com/playlist?list=PLz7t89zv8Lp2D6xQOG7kUEbN1KP5u-mpH) 
+the Youtube series of [Abstract Algebra lectures](https://www.youtube.com/@AndrewMisseldine/playlists?view=50&sort=dd&shelf_id=8) 
 given by Dr. Andrew Misseldine at 
 Southen Utah University.  
 
