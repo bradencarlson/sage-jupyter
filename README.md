@@ -77,11 +77,10 @@ SageMath will find this Project helpful in their journey to using SageMath.
 
 ### Package
 
-This project can now be found in a package! The package is stable as of version 1.0.  
+This project can be found in a package on PyPi. 
 
-Note that this package, while found on [PyPi](https://pypi.org/project/sage-aata/), is made to be used with SageMath, and not 
-Python.  This package can be 
-installed with the following command:
+Note that this package, while found on [PyPi](https://pypi.org/project/sage-aata/), is made to be 
+used with SageMath, and not Python.  This package can be installed with the following command:
 
 ```
 pip install sage-aata
